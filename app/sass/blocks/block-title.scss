@@ -1,0 +1,27 @@
+.block-title {
+  width: 100%;
+  //width: 200px;
+  //background-size: 200px auto;
+  height: 180px;
+  background-color: chocolate;
+  //background-image: url("../images/dest/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media(min-resolution: 1.5dppx)  {
+.block-title{
+  //background-image: url("../images/dest/bg-x2.jpg");
+}
+}
+
+.main__block-title{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 28px;
+}

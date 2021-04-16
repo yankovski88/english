@@ -1,0 +1,53 @@
+.block-answer{
+  padding-bottom: 30px;
+}
+.block-answer__title {
+  font-size: 40px;
+  /*background: red;*/
+  padding-bottom: 20px
+}
+.block-answer__text {
+  font-size: 21px;
+  /*background: #d2691e;*/
+  padding-bottom: 20px
+}
+
+.block-answer__url{
+margin-bottom: 30px;
+}
+
+.block-answer__img-list{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.block-answer__img{
+  margin-bottom: 30px;
+}
+
+/*.catalog__movies-card {*/
+/*  width: calc((100% - 30px) / 4);*/
+/*  margin-right: 10px;*/
+/*  margin-bottom: 55px;*/
+/*}*/
+
+/*.catalog__movies-card {*/
+/*  width: calc((100% - 30px) / 4);*/
+/*  margin-right: 10px;*/
+/*  margin-bottom: 55px;*/
+/*}*/
+
+/*.catalog__movies-card:nth-child(4n) {*/
+/*  margin-right: 0;*/
+/*}*/
+
+/*.catalog__movies-card:nth-last-child(-n + 4) {*/
+/*  margin-bottom: 0;*/
+/*}:nth-child(4n) {*/
+/*  margin-right: 0;*/
+/*}*/
+
+/*.catalog__movies-card:nth-last-child(-n + 4) {*/
+/*  margin-bottom: 0;*/
+/*}*/

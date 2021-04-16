@@ -1,0 +1,35 @@
+button{
+  background: transparent;
+  border: none;
+}
+//button:hover{
+//  background: $hover-color;
+//}
+button:active{
+  background: $active-color;
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  background: $hover-color;
+}
+a:active{
+  background: $active-color;
+}
+
+h1{
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+  color: $blue;
+  text-align: center;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}

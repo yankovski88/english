@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.min.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body class="page-body">
+<header class="header">
+    <div class="header__wrapper">
+        <h1 class="header__title">Вопросы для фронтенд разработчика</h1>
+    </div>
+</header>
+<!--<header class="header">-->
+
+<!--    <div class="container">-->
+<!--        &lt;!&ndash;в header__wrapper прописать все свойства contaner&ndash;&gt;-->
+<!--        <div class="header__wrapper">-->
+<!--            <div class="logo-box">-->
+<!--                <img class="logo logo-box__logo" src="images/dest/logo.svg" width="85" height="81" alt="logo">-->
+<!--                <div class="logo-text logo-box__logo-text">-->
+<!--                    <p class="logo-text__height">Salmonbellies AS </p>-->
+<!--                    <p class="logo-text__low">Trout is the new salmon</p>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <nav class="nav header__nav">-->
+<!--                <button class="nav__menu-button"></button>-->
+<!--                <ul class="nav__list-navigation">-->
+<!--                    <li class="nav__item nav__item&#45;&#45;color-red nav_item&#45;&#45;size-20"><a class="nav__link" href="#">Our-->
+<!--                        products</a>-->
+<!--                    </li>-->
+
+<!--                    <div id="idNavElement2" class="nav-menu">-->
+<!--                        <li class="nav__item nav__item&#45;&#45;element-2">-->
+<!--                            <button class="nav__button-inner nav__button&#45;&#45;inner-2 nav&#45;&#45;button-big"></button>-->
+<!--                            <a class="nav__link" href="#">Receipes</a>-->
+<!--                        </li>-->
+
+<!--                        <ul class="nav__element-2-inner win-none ulbig">-->
+<!--                            <ul class="nav__inner_2_1">-->
+<!--                                <li>-->
+<!--                                    <a>Element 2.1</a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+
+
+<!--                            <ul class="nav__inner_2_2">-->
+<!--                                <li>-->
+<!--                                    <button class="nav__button-inner nav__button&#45;&#45;inner-2-2 nav__button-inner_small"></button>-->
+<!--                                    <a class="element_2">Element 2.2</a>-->
+<!--                                </li>-->
+<!--                                <ul class="nav__inner_2_2_s win-none ulsmall">-->
+<!--                                    <li class="nav__inner-small"><a>Element 2.2.1</a></li>-->
+<!--                                    <li class="nav__inner-small"><a>Element 2.2.2</a></li>-->
+<!--                                    <li class="nav__inner-small"><a>Element 2.2.3</a></li>-->
+<!--                                </ul>-->
+<!--                            </ul>-->
+
+
+<!--                            <ul class="nav__inner_2_3">-->
+<!--                                <li>-->
+<!--                                    <a>Element 2.3</a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                            <ul class="nav__inner_2_4">-->
+<!--                                <li>-->
+<!--                                    <button class="nav__button-inner nav__button&#45;&#45;inner-2-4 nav__button-inner_small"></button>-->
+<!--                                    <a>Element 2.4</a></li>-->
+<!--                                <ul class="nav__inner_2_4_s win-none ulsmall">-->
+<!--                                    <li class="nav__inner-small"><a>Element 2.4.1</a></li>-->
+<!--                                    <li class="nav__inner-small"><a>Element 2.4.2</a></li>-->
+<!--                                    <li class="nav__inner-small"><a>Element 2.4.3</a></li>-->
+<!--                                    <li class="nav__inner-small"><a>Element 2.4.4</a></li>-->
+<!--                                    <li class="nav__inner-small"><a>Element 2.4.5</a></li>-->
+<!--                                    <li class="nav__inner-small"><a>Element 2.4.6</a></li>-->
+<!--                                    <li class="nav__inner-small"><a>Element 2.4.7</a></li>-->
+<!--                                </ul>-->
+<!--                            </ul>-->
+<!--                            <ul class="nav__inner_2_5">-->
+<!--                                <li><a>Element 2.5</a></li>-->
+<!--                            </ul>-->
+<!--                            <ul class="nav__inner_2_6">-->
+<!--                                <li>-->
+<!--                                    <a>Element 2.6</a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+
+<!--                    <li class="nav__item"><a class="nav__link " href="#">Services</a></li>-->
+
+<!--                    <div id="idPicContainer4" class="nav-menu">-->
+<!--                        <li id="idPicContainer4Modile" class="nav__item nav__item&#45;&#45;element-4">-->
+<!--                            <button class="nav__button-inner nav__button&#45;&#45;inner-4 nav&#45;&#45;button-big"></button>-->
+<!--                            <a class="nav__link" href="#">The promise</a>-->
+<!--                        </li>-->
+<!--                        <ul id="picHolder" class="nav__element-4-inner win-none ulbig">-->
+<!--                            <li>-->
+<!--                                <a href="">Element 4.1</a>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <a href="">Element 4.2</a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+
+<!--                    <li class="nav__item"><a class="nav__link" href="#">Origin</a></li>-->
+<!--                    <li class="nav__item"><a class="nav__link" href="#">Markets</a></li>-->
+<!--                    <li class="nav__item"><a class="nav__link" href="#">CSR</a></li>-->
+<!--                    <li class="nav__item"><a class="nav__link" href="#">Company</a></li>-->
+<!--                    <li class="nav__item"><a class="nav__link" href="#">Contacts</a></li>-->
+<!--                </ul>-->
+<!--                </ul>-->
+<!--            </nav>-->
+<!--            <div class="uk-box">-->
+<!--                <div class="uk uk-box__uk"></div>-->
+<!--                <button class="arrow uk-box__arrow"></button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
+
+<main class="main">
+    <div class="block-answer">
+        <div class="block-answer__wrapper">
+            <h2 class="block-answer__title">
+                1. Что такое js?
+            </h2>
+            <div class="block-answer__text">
+                JavaScript это язык, который позволяет вам применять сложные вещи на web странице — каждый раз,
+                когда на web странице происходит что-то большее, чем просто её статичное отображение
+            </div>
+        </div>
+    </div>
+    <div class="block-answer">
+        <div class="block-answer__wrapper">
+            <h2 class="block-answer__title">
+                2. Что такое react?
+            </h2>
+            <div class="block-answer__text">
+                В этом введении мы будем постепенно создавать небольшую игру.
+                Возможно, вы захотите пропустить его, потому что не разрабатываете игры,
+                но вам стоит попробовать. Подходы, которые вы изучите в этом введении,
+                являются основополагающими для создания любого React-приложения.
+                Их освоение даст вам глубокое понимание React.
+
+        </div>
+    </div>
+    <div class="add-answer">
+        <form class="add-answer__form" action="#">
+            <div class="add-answer__title">
+              <textarea class="add-answer__title-textarea" name="add-answer__title" type="text" placeholder="Вопрос">
+
+        </textarea>
+            </div>
+            <div class="add-answer__text">
+        <textarea class="add-review__text-textarea" name="add-answer__text" type="text" placeholder="Ответ">
+
+        </textarea>
+            </div>
+            <div class="block-answer__submit">
+                <button class="block-answer__btn" type="submit">Отправить</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<!--<main class="main">-->
+<!--    <div class="block-title main__block-title">-->
+<!--        <div class="container">-->
+<!--            <h1>Our fresh and frozen fish</h1>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="container">-->
+<!--        <section class="catalog container__catalog">-->
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <img src="images/dest/kirjolohi-kokonainen.jpg" width="256" height="154"-->
+<!--                         srcset="images/dest/kirjolohi-kokonainen-x2-compress.jpg"-->
+<!--                         alt="kirjolohi-kokonainen">-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    Trout whole<br>-->
+<!--                    oncorhynchus mykiss-->
+<!--                </p>-->
+<!--            </a>-->
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <picture>-->
+<!--                        <source type="image/webp" media="(min-width: 1440px)"-->
+<!--                                srcset="images/webp/kirjolohifilee1440@1x.webp 1x,-->
+<!--                                images/webp/kirjolohifilee1440@2x.webp 2x">-->
+
+
+<!--                        <source type="image/webp" media="(min-width: 768px)" srcset="-->
+<!--                        images/webp/kirjolohifilee748px@1x.webp 1x,-->
+<!--                        images/webp/kirjolohifilee748px@2x.webp 2x-->
+<!--                        ">-->
+<!--                        <source type="image/webp" srcset="-->
+<!--                        images/webp/kirjolohifilee-mobile@1x.webp 1x,-->
+<!--                        images/webp/kirjolohifilee-mobile@2x.webp 2x-->
+<!--                        ">-->
+
+<!--                        <source media="min-width: 1440px" srcset="-->
+<!--                        images/dest/kirjolohifilee1440@1x.jpg 1x,-->
+<!--                        images/dest/kirjolohifilee1440@2x.jpg 2x-->
+<!--                        ">-->
+<!--                        <source media="min-width: 748px" srcset="-->
+<!--                        images/dest/kirjolohifilee748px@1x.jpg 1x,-->
+<!--                        images/dest/kirjolohifilee748px@2x.jpg 2x-->
+<!--                        ">-->
+<!--                        &lt;!&ndash;<source srcset="&ndash;&gt;-->
+<!--                        &lt;!&ndash;images/dest/kirjolohifilee-mobile@1x.jpg 1x,&ndash;&gt;-->
+<!--                        &lt;!&ndash;images/dest/kirjolohifilee-mobile@2x.jpg 2x&ndash;&gt;-->
+<!--                        &lt;!&ndash;">&ndash;&gt;-->
+
+<!--                        <img src="images/src/kirjolohifilee.jpg"-->
+<!--                             srcset="-->
+<!--                        images/dest/kirjolohifilee-mobile@1x.jpg 1x,-->
+<!--                        images/dest/kirjolohifilee-mobile@2x.jpg 2x-->
+<!--                        "-->
+<!--                             alt="kirjolohifilee">-->
+<!--                    </picture>-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    TROUT FILLET<br>-->
+<!--                    ONCORHYNCHUS MYKISS-->
+<!--                </p>-->
+<!--            </a>-->
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <picture>-->
+<!--                        <source type="image/webp" srcset="-->
+<!--                        images/webp/lohi-kokonainen.webp 1x,-->
+<!--                        images/webp/lohi-kokonainen@x2.webp 2x-->
+<!--                        ">-->
+<!--                        <img src="images/dest/lohi-kokonainen.jpg" width="248" height="155" alt="lohi-kokonainen">-->
+<!--                    </picture>-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    SALMON WHOLE<br>-->
+<!--                    SALMO SALAR-->
+<!--                </p>-->
+<!--            </a>-->
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <img src="images/dest/norjalainen-lohifilee.jpg" width="243" height="151"-->
+<!--                         alt="norjalainen-lohifilee">-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    SALMON C-CUT FILLET<br>-->
+<!--                    SALMO SALAR-->
+<!--                </p>-->
+<!--            </a>-->
+<!--            &lt;!&ndash;4&ndash;&gt;-->
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <img src="images/dest/siika-kasvatettu-villi.jpg" width="248" height="155"-->
+<!--                         alt="siika-kasvatettu-villi">-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    WHITEFISH<br>-->
+<!--                    COREGONUS LAVARETUS-->
+<!--                </p>-->
+<!--            </a>-->
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <img src="images/dest/siikafilee-suomulla-suomustettu-ruodoton.jpg" width="239" height="150"-->
+<!--                         alt="siikafilee-suomulla-suomustettu-ruodoton">-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    WHITEFISH FILLET WITHOUT<br>-->
+<!--                    SKIN AND SCALED-->
+<!--                </p>-->
+<!--            </a>-->
+
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <img src="images/dest/taimen.jpg" width="234" height="146" alt="taimen">-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    FARMED BROWN TROUT<br>-->
+<!--                    SALMO TRUTTA-->
+<!--                </p>-->
+<!--            </a>-->
+
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <img src="images/dest/kalaneuvos-tuore-taimenfilee-syvatty-web.jpg" width="246" height="153"-->
+<!--                         alt="kalaneuvos-tuore-taimenfilee-syvatty-web">-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    FARMED BROWN TROUT FILLET<br>-->
+<!--                    SALMO TRUTTA-->
+<!--                </p>-->
+<!--            </a>-->
+
+<!--            &lt;!&ndash;8&ndash;&gt;-->
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <img src="images/dest/ahven 2.jpg" width="233" height="146" alt="ahven">-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    TROUT WHOLE<br>-->
+<!--                    ONCORHYNCHUS MYKISS-->
+<!--                </p>-->
+<!--            </a>-->
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <img src="images/dest/kuhafilee-nahaton.jpg" width="231" height="144" alt="kuhafilee-nahaton">-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    TROUT FILLET<br>-->
+<!--                    ONCORHYNCHUS MYKISS-->
+<!--                </p>-->
+<!--            </a>-->
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <picture>-->
+<!--                        <source type="image/webp" srcset="-->
+<!--                        images/webp/kuha.webp 1x,-->
+<!--                        images/webp/kuha@x2.webp 2x,-->
+<!--">-->
+<!--                        <img src="images/dest/kuha.jpg" width="234" height="146" alt="kuha">-->
+<!--                    </picture>-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    SALMON WHOLE<br>-->
+<!--                    SALMO SALAR-->
+<!--                </p>-->
+<!--            </a>-->
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <img src="images/dest/muikku-perattu.jpg" width="246" height="154" alt="muikku-perattu">-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    SALMON C-CUT FILLET<br>-->
+<!--                    SALMO SALAR-->
+<!--                </p>-->
+<!--            </a>-->
+<!--            &lt;!&ndash;12&ndash;&gt;-->
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <img src="images/dest/silakkafilee.jpg" width="237" height="148" alt="silakkafilee">-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    WHITEFISH<br>-->
+<!--                    COREGONUS LAVARETUS-->
+<!--                </p>-->
+<!--            </a>-->
+
+<!--            <a href="" class="card-product">-->
+<!--                <div class="card-product__wrapper-img">-->
+<!--                    <img src="images/dest/silakka.jpg" width="236" height="147" alt="silakka">-->
+<!--                </div>-->
+<!--                <p class="card-product__text">-->
+<!--                    WHITEFISH FILLET WITHOUT<br>-->
+<!--                    SKIN AND SCALED-->
+<!--                </p>-->
+<!--            </a>-->
+<!--        </section>-->
+<!--    </div>-->
+<!--    <div class="move">move me</div>-->
+<!--</main>-->
+<!--<footer class="footer">-->
+<!--    <div class="container container&#45;&#45;footer">-->
+<!--        <img class="logo footer__logo" src="images/dest/logo.svg" width="67" height="61">-->
+<!--        <div class="logo-text footer__logo-text">-->
+<!--            <p class="logo-text__height">Salmonbellies AS </p>-->
+<!--            <p class="logo-text__low">Trout is the new salmon</p>-->
+<!--        </div>-->
+<!--        <div class="kosher-box footer__kosher-box">-->
+<!--            <a href="" class="kosher"></a>-->
+<!--            <p class="kosher-box__text">Kosher per demand</p>-->
+<!--        </div>-->
+<!--        <a href="" class="fb footer__fb"></a>-->
+<!--        <a href="" class="in footer__in"></a>-->
+<!--        <p class="text footer__text">Copyright SalmonBellies.no 2019, All Rights Reserved</p>-->
+<!--    </div>-->
+<!--</footer>-->
+<script src="js/app.min.js"></script>
+<!--<script src="js/menu.js"></script>-->
+<script src="js/move.js"></script>
+
+<script src="js/menu_mobile.js"></script>
+<script src="js/menu_pc.js"></script>
+
+<!--<div id="root"></div>-->
+<!--<script src="bundle.js"></script>-->
+</body>
+</html>

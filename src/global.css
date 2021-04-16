@@ -1,0 +1,26 @@
+button{
+  background: transparent;
+  border: none;
+}
+
+
+h1{
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+  color: blue;
+  text-align: center;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+body{
+  padding-left: 10%;
+  padding-right: 10%;
+}
