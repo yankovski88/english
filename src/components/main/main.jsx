@@ -13,9 +13,21 @@ const Main = (props) => {
   const keyFoodWords = Object.keys(foodWords);
   const [keyStateWord, setKeyStateWord] = React.useState(foodWords[keyFoodWords[numberWord]]);
   const [isAnswer, setIsAnswer] = React.useState(null);
+  const [noAnswerKeys, setNoAnswerKeys] = React.useState([]);
+  const [trueAnswerKeys, setTrueAnswerKeys] = React.useState([]);
 
+
+
+  const a = foodWords;
+  delete a["ege"]
+
+  console.log(a)
 
   const getKeyByValue = (object, value) => {
+    return Object.keys(object).find(key => object[key] === value);
+  }
+
+  const getKeyValueByKey= (object, value) => {
     return Object.keys(object).find(key => object[key] === value);
   }
 
@@ -28,17 +40,43 @@ const Main = (props) => {
   }, [keyFoodWords])
 
   const nextWord = () => {
-    setNumberWord((numberWord) => numberWord + 1);
-  }
-
-  const addAnswer = () => {
     console.log(valueStateWord, answerRef.current.value)
+    console.log(keyStateWord)
+    setNumberWord((numberWord) => numberWord + 1);
+    answerRef.current.value = ``;
+
     if (valueStateWord === answerRef.current.value) {
+      console.log(valueStateWord, answerRef.current.value)
+      setTrueAnswerKeys((prev)=>[valueStateWord, ...prev])
       setIsAnswer(true)
-    } else {
+    }
+      else if(keyStateWord === undefined){
+        console.log(`nooooooooooo`)
+      return
+    }
+
+    else if(valueStateWord !== answerRef.current.value){
+      setNoAnswerKeys((prev)=> [valueStateWord, ...prev])
       setIsAnswer(false)
     }
   }
+
+  // const addAnswer = () => {
+  //   console.log(valueStateWord, answerRef.current.value)
+  //   if (valueStateWord === answerRef.current.value) {
+  //
+  //     setIsAnswer(true)
+  //   }
+  //   // else if(valueStateWord === ``){
+  //   //   console.log(`nooooooooooo`)
+  //   // }
+  //
+  //   else {
+  //
+  //     setNoAnswerKeys((prev)=> [keyStateWord, ...prev])
+  //     setIsAnswer(false)
+  //   }
+  // }
 
   return (
     <main className="main">
@@ -53,11 +91,21 @@ const Main = (props) => {
           // getKeyByValue(foodWords, foodWords[keyFoodWords[numberWord]])
         }
       </div>
-      <button onClick={addAnswer}>Add answer</button>
+      {/*<button onClick={addAnswer}>Add answer</button>*/}
       <button onClick={nextWord}>next word</button>
-      {!isAnswer ? `no answer` :
-        `true answer`
-      }
+      {/*{*/}
+      {/*  !isAnswer ? `no answer` :*/}
+      {/*  `true answer`*/}
+      {/*}*/}
+      <div>
+        Изучите:
+        {noAnswerKeys.map((item)=>{
+          return (<div key={item}>{item}</div>)
+        })}
+        Good:
+        {trueAnswerKeys.map((item)=>{
+          return (<div key={item}>{item}</div>)
+        })}      </div>
     </main>
 
   )
