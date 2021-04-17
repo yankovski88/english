@@ -13,6 +13,7 @@ a{
 }
 a:hover{
   background: $hover-color;
+  cursor: pointer;
 }
 a:active{
   background: $active-color;

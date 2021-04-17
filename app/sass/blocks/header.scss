@@ -1,7 +1,7 @@
 .header {
   width: 100%;
-  padding-bottom: 20px;
   padding-top: 20px;
+  padding-bottom: 30px;
 
   @media (min-width: $desktop) {
     //background: red;
@@ -22,6 +22,8 @@
 }
 
 .header__title{
+  color: darkred;
+  font-weight: bolder;
   //display: flex;
   //background: black;
 

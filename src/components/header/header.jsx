@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 
 const Header = ()=>{
   return (
-      <header className="header">
-        <div className="header__wrapper">
-          <h1 className="header__title">Вопросы для фронтенд разработчика</h1>
-        </div>
-      </header>
+    <header className="header">
+      <div className="header__wrapper">
+        <h1 className="header__title">Запоминай английские слова на максимальной скорости</h1>
+      </div>
+    </header>
   );
 };
 
