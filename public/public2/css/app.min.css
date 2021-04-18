@@ -594,3 +594,17 @@ img {
   color: pink;
   font-weight: 700
 }
+.block-words__li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px
+}
+.block-words__couple {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex
+}
+.block-words__couple p {
+  font-size: 18px
+}

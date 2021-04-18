@@ -1,6 +1,6 @@
 // определяем действия
 export const ActionType = {
-  ADD_ANSWER: `main/ADD_ANSWER`,
+    SET_LIST_WORDS: `main/SET_LIST_WORDS`,
 };
 
 // создаем объект функция которые возвращают экшин
@@ -12,10 +12,7 @@ export const ActionType = {
 //
 // };
 
-export const addAnswer = (title, text) => ({
-    type: ActionType.ADD_ANSWER, // тип экшина
-    payload: {
-      title,
-      text
-    }, // payload это полезная нагрузка которую появляется при клике от пользователя
+export const setActiveWords = (activeWords) => ({
+    type: ActionType.SET_LIST_WORDS, // тип экшина
+    payload: activeWords, // payload это полезная нагрузка которую появляется при клике от пользователя
   });

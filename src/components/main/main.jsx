@@ -1,9 +1,11 @@
 import React from "react";
+import BlockWords from "../block-words/block-words";
+// import {NavWords} from "../nav-words/nav-words";
+import BlockErrorWords from "../block-error-words/block-error-words";
 
 // import {words} from "../../mock/mock"
 
 const Main = (props) => {
-  console.log(props)
   const {fruits, numbers, orders, seasons, months, days, times, timeIntervals, money, colors, properties} = props;
 
 
@@ -142,6 +144,14 @@ const Main = (props) => {
 
   return (
     <main className="main">
+      {/*<NavWords/>*/}
+
+
+
+
+
+
+
 
       <div className="nav-words">
         <div className="nav-block">
@@ -210,6 +220,7 @@ const Main = (props) => {
 
 
       <div className="block-answer">
+        <div className="block-answer__wrapper">
 
 
         <div className="statistics">
@@ -256,191 +267,31 @@ const Main = (props) => {
           <button onClick={showListErrors} className="btn">Показать ошибки<p>{errorWords.length}</p></button>
         </div>
       </div>
+
+
+
+
+
+
+
+
+
+        </div>
     </div>
 
 
-  {/*<div style={{display: "flex",}}>*/
-  }
-  {/*  <div>*/
-  }
-  {/*  <p>Числа и время</p>*/
-  }
-  {/*  <ul className="tume-and-numbers" style={{paddingRight: "10px"}}>*/
-  }
-  {/*    <li className="number" onClick={handleNumbers}>*/
-  }
-  {/*      <a>Числа</a>*/
-  }
-  {/*    </li>*/
-  }
-
-  {/*    <li className="number" onClick={handleOrders}>*/
-  }
-  {/*      <a>Порядковые числа</a>*/
-  }
-  {/*    </li>*/
-  }
-
-  {/*    <li className="" onClick={handleSeasons}>*/
-  }
-  {/*      <a>Ceзон</a>*/
-  }
-  {/*    </li>*/
-  }
-
-  {/*    <li className="" onClick={handleMonths}>*/
-  }
-  {/*      <a>Месяцы</a>*/
-  }
-  {/*    </li>*/
-  }
-
-  {/*    <li className="" onClick={handleDays}>*/
-  }
-  {/*      <a>Дни</a>*/
-  }
-  {/*    </li>*/
-  }
-
-  {/*    <li className="" onClick={handleTimes}>*/
-  }
-  {/*      <a>Время</a>*/
-  }
-  {/*    </li>*/
-  }
-
-  {/*    <li className="" onClick={handleTimeIntervals}>*/
-  }
-  {/*      <a>Временной интервал</a>*/
-  }
-  {/*    </li>*/
-  }
-
-  {/*    <li className="" onClick={handleMoney}>*/
-  }
-  {/*      <a>Деньги</a>*/
-  }
-  {/*    </li>*/
-  }
-  {/*  </ul>*/
-  }
-  {/*  </div>*/
-  }
-
-  {/*  <div style={{paddingRight: "10px"}}>*/
-  }
-  {/*    <p>Характеристики</p>*/
-  }
-  {/*    <ul className="" >*/
-  }
-  {/*      <li className="" onClick={handleColors}>*/
-  }
-  {/*        <a>Цвета</a>*/
-  }
-  {/*      </li>*/
-  }
-  {/*      <li className="" onClick={handleProperties}>*/
-  }
-  {/*        <a>Свойства</a>*/
-  }
-  {/*      </li>*/
-  }
-  {/*    </ul>*/
-  }
-  {/*  </div>*/
-  }
-
-  {/*  <div>*/
-  }
-  {/*  <ul className="" style={{paddingRight: "10px"}}>*/
-  }
-  {/*    <li className="" onClick={getFruits}>*/
-  }
-  {/*      <a>Фрукты</a>*/
-  }
-  {/*    </li>*/
-  }
-  {/*  </ul>*/
-  }
-  {/*  </div>*/
-  }
-  {/*</div>*/
-  }
-  {/*<div>Всего слов: {words.length}</div>*/
-  }
-  {/*<div>*/
-  }
-  {/*  Отвечено: {numberWord !== null ? numberWord : 0}*/
-  }
-  {/*</div>*/
-  }
-  {/*<div>*/
-  }
-  {/*  Осталось: {numberWord !== null ? words.length - numberWord : 0}*/
-  }
-  {/*</div>*/
-  }
-  {/*<div>*/
-  }
-  {/*  Ошибок: {errorWords.length}*/
-  }
-  {/*</div>*/
-  }
-  {/*<div>*/
-  }
-  {/*  Правильные ответы: {trueWords.length}*/
-  }
-  {/*</div>*/
-  }
-  {/*<div>*/
-  }
-  {/*  {showWord ? Object.values(showWord) : ``}*/
-  }
-  {/*</div>*/
-  }
-  {/*<input*/
-  }
-  {/*  onKeyPress={handleKeyPressEnter}*/
-  }
-  {/*  value={inputAnswer}*/
-  }
-  {/*  onChange={(event) => enterValue(event)}*/
-  }
-  {/*  className="inputAnswer" placeholder="answer"></input>*/
-  }
-  {/*<button onClick={nextWord}>next word</button>*/
-  }
-  {/*<button onClick={showList}>Показать список слов</button>*/
-  }
-  {/*<button onClick={showListErrors}>Показать errors</button>*/
-  }
 
 
-  {/*<button onClick={getErrors}>Изучить errors</button>*/
-  }
 
 
-  {/*{isList ? words.map((fruit, index) => {*/
-  }
-  {/*  return <div key={index}>*/
-  }
-  {/*    {Object.entries(fruit).join(``)}*/
-  }
-  {/*  </div>*/
-  }
-  {/*}) : ``}*/
-  }
+      {isList ? <BlockWords words={words}/> : ``}
+      {isListError ? <BlockErrorWords errorWords={errorWords}/> : ``}
 
-  {/*{isListError ? errorWords.map((errorWord, index) => {*/
-  }
-  {/*  return <div key={index}>*/
-  }
-  {/*    {Object.entries(errorWord).join(``)}*/
-  }
-  {/*  </div>*/
-  }
-  {/*}) : ``}*/
-  }
+
+      {/*{isListError ? errorWords.map((errorWord, index) => {*/}
+      {/*return <div key={index}>Object.entries(errorWord).join(``)}</div>}) : ``}*/}
+
+
 </main>
 
 )

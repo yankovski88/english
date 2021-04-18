@@ -1,16 +1,16 @@
 import {combineReducers} from 'redux';
-import {userAnswer} from "./user-answer/user-answer";
+import {reducerMain} from "./reducer-main/reducer-main";
 
 
 // в NameSpace определяем разделы стора
 export const NameSpace = {
-  USER_ANSWER: `USER_ANSWER`,
+  MAIN: `MAIN`,
 };
 
 // здесь соединяем наши раздельные редьюсеры
 // указали поля и ссылки на наши редьюсеры
 export default combineReducers({
-  [NameSpace.USER_ANSWER]: userAnswer,
+  [NameSpace.MAIN]: reducerMain,
 });
 
 

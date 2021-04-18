@@ -1,7 +1,7 @@
 import React from "react";
 // import "./add-answer.css";
 import {connect} from "react-redux";
-import {addAnswer} from "../../store/action-quastion";
+import {addAnswer} from "../../store/action-type";
 import {answers} from "../../mock/mock";
 
 
