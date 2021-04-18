@@ -173,4 +173,4 @@ exports.webp = webp;
 exports.build = series(cleandist, styles, scripts, images, webp, buildcopy, buildcopy2, cleandist2);
 
 // Экспортируем дефолтный таск с нужным набором функций
-exports.default = parallel(styles, scripts, browsersync, startwatch, buildcopy2, cleandist2);
+exports.default = parallel(styles, scripts, browsersync, startwatch);

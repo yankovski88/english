@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Fish</title>
+  <title>English</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/app.min.css">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body class="page-body">
 <header class="header">
-  <div class="header__wrapper">
-    <h1 class="header__title">Запоминай английские слова на максимальной скорости</h1>
-  </div>
+<!--  <div class="header__wrapper">-->
+
+  <h1 class="header__title">Запоминай английские слова на максимальной скорости</h1>
+<!--  </div>-->
 </header>
 
 
@@ -84,11 +85,37 @@
 
   <div class="block-answer">
 
+    <div class="statistics">
+      <ul class="statistics__ul">
+        <li class="statistics__li">Всего слов: <p>{}
+          <p></li>
+        <li class="statistics__li">
+          Отвечено: <p>{}</p>
+        </li>
+        <li class="statistics__li">
+          Осталось: <p>{}</p>
+        </li>
+        <!--        <li class="statistics__li">-->
+        <!--          Ошибок: {errorWords.length}-->
+        <!--        </li>-->
+        <li class="statistics__li">
+          Правильные ответы: <p>{}</p>
+        </li>
+      </ul>
+
+
+    </div>
+
+
+
+
+
     <div class="add-answer">
       <div class="add-answer__word">
         {showWord ? Object.values(showWord) : ``}
       </div>
 <!--      <hr class="add-answer__line"/>-->
+      <div class="add-answer__input-wrap">
       <input type="text" class="add-answer__input">
 
       <!--          onKeyPress={handleKeyPressEnter}-->
@@ -97,8 +124,10 @@
       <!--        class="inputAnswer" placeholder="answer"-->
 
       </input>
+      <button onClick={nextWord} class="add-answer__btn-next btn">Следующее</button>
+      </div>
       <div class="add-answer__btn-wrapper">
-        <button onClick={nextWord} class="add-answer__btn-next btn">Следующее</button>
+
         <button onClick={showList} class="add-answer__btn-show-list btn">Показать список активных слов</button>
         <!--      </div>-->
         <!--        <div class="add-answer__btn-wrapper">-->
@@ -109,26 +138,6 @@
     </div>
 
 
-    <div class="statistics">
-      <ul class="statistics__ul">
-        <li class="statistics__li">Всего слов: <p>{words.length}
-          <p></li>
-        <li class="statistics__li">
-          Отвечено: <p>{numberWord !== null ? numberWord : 0}</p>
-        </li>
-        <li class="statistics__li">
-          Осталось: <p>{numberWord !== null ? words.length - numberWord : 0}</p>
-        </li>
-        <!--        <li class="statistics__li">-->
-        <!--          Ошибок: {errorWords.length}-->
-        <!--        </li>-->
-        <li class="statistics__li">
-          Правильные ответы: <p>{trueWords.length}</p>
-        </li>
-      </ul>
-
-
-    </div>
   </div>
 
 

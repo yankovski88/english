@@ -1,5 +1,19 @@
-.nav-words{
+.nav-words {
   display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
+  flex-direction: column;
+//background: pink;
+  //justify-content: center;
+  margin-bottom: 40px;
+  width: $mobile;
+
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: $tablet;
+  }
+  @media (min-width: $desktop) {
+    width: $desktop
+  }
 }

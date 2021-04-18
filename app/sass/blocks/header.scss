@@ -1,33 +1,124 @@
 .header {
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 30px;
+  width: $mobile;
+  //display: flex;
+  //justify-content: center;
+margin-bottom: 40px;
 
+  @media (min-width: $tablet) {
+    width: $tablet;
+  }
   @media (min-width: $desktop) {
-    //background: red;
-    min-height: 105px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: $desktop;
   }
 }
-
-.header__wrapper{
-  @media(min-width: $desktop)  {
-    //width: 1145px;
-    display: flex;
-    align-items: center;
-    //background: red;
-  }
-}
+//
+//.header__wrapper{
+//  background: #008cba;
+//  @media(min-width: $desktop)  {
+//    //width: 1145px;
+//    display: flex;
+//    align-items: center;
+//    //background: red;
+//  }
+//}
 
 .header__title{
+  margin-top: 10px;
   color: darkred;
   font-weight: bolder;
-  //display: flex;
-  //background: black;
+  font-size: 26px;
+  text-align: center;
+
+  @media (min-width: $tablet) {
+    font-size: 40px;
+  }
+  @media (min-width: $desktop) {
+    font-size: 50px;
+  }
 
 }
+
+
+//.container {
+//  max-width: 320px;
+//  padding: 0 5px;
+//  margin-left: auto;
+//  margin-right: auto;
+//  //background: yellow;
+//}
+//
+//@media (min-width: $tablet) {
+//  .container {
+//    max-width: 768px;
+//    padding: 0 10px;
+//  }
+//}
+//
+//@media (min-width: $desktop) {
+//  .container {
+//    max-width: 1140px;
+//    //1280
+//    padding: 0 230px;
+//    background: none;
+//    //background: chocolate;
+//  }
+//}
+//
+//.container--footer {
+//  background: $blue-light;
+//
+//  @media(min-width: $tablet) {
+//    padding-top: 20px;
+//    display: grid;
+//    grid-template-columns: 1fr 1fr 1fr;
+//  }
+//  @media(min-width: $desktop) {
+//    padding-top: 0;
+//    min-height: 130px;
+//    display: flex;
+//    align-items: center;
+//  }
+//}
+
+
+
+//$mobile: 320px;
+//$tablet: 768px;
+//$desktop: 1440px;
+
+
+
+
+//.header {
+//  width: 100%;
+//  padding-top: 20px;
+//  padding-bottom: 30px;
+//
+//  @media (min-width: $desktop) {
+//    //background: red;
+//    min-height: 105px;
+//    display: flex;
+//    align-items: center;
+//    justify-content: center;
+//  }
+//}
+//
+//.header__wrapper{
+//  @media(min-width: $desktop)  {
+//    //width: 1145px;
+//    display: flex;
+//    align-items: center;
+//    //background: red;
+//  }
+//}
+//
+//.header__title{
+//  color: darkred;
+//  font-weight: bolder;
+//  //display: flex;
+//  //background: black;
+//
+//}
 
 
 

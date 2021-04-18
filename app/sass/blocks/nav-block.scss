@@ -1,18 +1,40 @@
 .nav-block{
-  padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  //width: 100px;
+  //padding-right: 40px;
+margin-bottom: 20px;
+  //width: $mobile;
+  //background: #d2691e;
+
+  @media (min-width: $tablet) {
+    //display: flex;
+    //width: $tablet;
+    padding-right: 30px;
+
+  }
+  @media (min-width: $desktop) {
+    //width: $desktop;
+    padding-right: 50px;
+
+  }
+}
+
+.nav-block:last-child{
+  padding-right: 0px;
 }
 
 .nav-block__title{
   margin-bottom: 10px;
   font-weight: bolder;
-  font-size: 24px;
+  font-size: 26px;
   color: $blue;
 }
 
 .nav-block__ul{
-  line-height: 1.3;
+  line-height: 1.9;
 }
 
 .nav-block__li{
-  font-size: 18px;
+  font-size: 20px;
 }

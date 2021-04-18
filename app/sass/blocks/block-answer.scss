@@ -1,4 +1,12 @@
 .block-answer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+
+
+  @media (min-width: $tablet) {
+    //flex-direction: row;
+  }
+  @media (min-width: $desktop) {
+  }
 }
