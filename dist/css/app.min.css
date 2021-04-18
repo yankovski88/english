@@ -433,14 +433,16 @@ img {
   margin-right: 50px
 }
 .add-answer__word {
-  width: 400px;
-  min-height: 20px;
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #191970
+  width: 100%;
+  min-height: 25px;
+  font-size: 24px;
+  color: #00519c;
+  padding-bottom: 5px;
+  border-bottom: solid 2px green;
+  margin-bottom: 10px
 }
 .add-answer__input {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   width: 300px;
   height: 30px;
   font-size: 18px
@@ -450,7 +452,8 @@ img {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  width: 500px
 }
 .nav-words {
   display: -webkit-box;

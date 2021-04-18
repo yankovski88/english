@@ -7,14 +7,25 @@
 
 
 .add-answer__word{
-  width: 400px;
-  min-height: 20px;
-font-size: 18px;
+  width: 100%; // 305
+  min-height: 25px;
+font-size: 24px;
+  color: $blue;
+  padding-bottom: 5px;
+  border-bottom: solid 2px green; // #ff0000;
   margin-bottom: 10px;
-  color: midnightblue;
+
 }
+
+.add-answer__line {
+  ////align: left;
+  //width: 200px;
+  //size: 2px;
+  //color: #ff0000;
+}
+
 .add-answer__input{
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   width: 300px;
   height: 30px;
   font-size: 18px;
@@ -23,6 +34,7 @@ font-size: 18px;
 .add-answer__btn-wrapper{
   display: flex;
   flex-wrap: wrap;
+  width: 500px;
 }
 //.add-answer__btn-wrapper:last-child{
 //  padding-right: 0px;

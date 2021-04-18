@@ -85,52 +85,51 @@
   <div class="block-answer">
 
     <div class="add-answer">
-          <div class="add-answer__word">
-            {showWord ? Object.values(showWord) : ``}
-          </div>
-        <input type="text" class="add-answer__input">
+      <div class="add-answer__word">
+        {showWord ? Object.values(showWord) : ``}
+      </div>
+<!--      <hr class="add-answer__line"/>-->
+      <input type="text" class="add-answer__input">
 
-<!--          onKeyPress={handleKeyPressEnter}-->
-<!--          value={inputAnswer}-->
-<!--          onChange={(event) => enterValue(event)}-->
-<!--        class="inputAnswer" placeholder="answer"-->
+      <!--          onKeyPress={handleKeyPressEnter}-->
+      <!--          value={inputAnswer}-->
+      <!--          onChange={(event) => enterValue(event)}-->
+      <!--        class="inputAnswer" placeholder="answer"-->
 
       </input>
       <div class="add-answer__btn-wrapper">
         <button onClick={nextWord} class="add-answer__btn-next btn">Следующее</button>
         <button onClick={showList} class="add-answer__btn-show-list btn">Показать список активных слов</button>
-      </div>
-        <div class="add-answer__btn-wrapper">
+        <!--      </div>-->
+        <!--        <div class="add-answer__btn-wrapper">-->
         <button onClick={getErrors} class="btn">Изучить ошибки<p>{}</p></button>
         <button onClick={showListErrors} class="btn">Показать ошибки<p>{}</p></button>
-        </div>
+      </div>
 
     </div>
 
 
     <div class="statistics">
       <ul class="statistics__ul">
-        <li class="statistics__li">Всего слов: <p>{words.length}<p></li>
+        <li class="statistics__li">Всего слов: <p>{words.length}
+          <p></li>
         <li class="statistics__li">
           Отвечено: <p>{numberWord !== null ? numberWord : 0}</p>
         </li>
         <li class="statistics__li">
           Осталось: <p>{numberWord !== null ? words.length - numberWord : 0}</p>
         </li>
-<!--        <li class="statistics__li">-->
-<!--          Ошибок: {errorWords.length}-->
-<!--        </li>-->
+        <!--        <li class="statistics__li">-->
+        <!--          Ошибок: {errorWords.length}-->
+        <!--        </li>-->
         <li class="statistics__li">
           Правильные ответы: <p>{trueWords.length}</p>
         </li>
       </ul>
 
 
-
     </div>
   </div>
-
-
 
 
   <!--  </div>-->
