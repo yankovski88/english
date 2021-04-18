@@ -1,12 +1,24 @@
 .block-answer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  //justify-content: center;
 
 
-  @media (min-width: $tablet) {
-    //flex-direction: row;
-  }
-  @media (min-width: $desktop) {
-  }
+
+}
+
+.block-answer__wrapper{
+  ////padding-left: 10px;
+  ////padding-right: 10px;
+  //margin-left: auto;
+  //margin-right: auto;
+  //
+  //@media (min-width: $tablet) {
+  //  padding-left: 100px;
+  //  padding-right: 100px;
+  //  //flex-direction: row;
+  //}
+  //@media (min-width: $desktop) {
+  //}
+
 }

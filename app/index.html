@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body class="page-body">
+<div class="page-body__wrapper">
 <header class="header">
 <!--  <div class="header__wrapper">-->
 
@@ -84,6 +85,7 @@
   </div>
 
   <div class="block-answer">
+    <div class="block-answer__wrapper">
 
     <div class="statistics">
       <ul class="statistics__ul">
@@ -111,6 +113,7 @@
 
 
     <div class="add-answer">
+
       <div class="add-answer__word">
         {showWord ? Object.values(showWord) : ``}
       </div>
@@ -131,13 +134,13 @@
         <button onClick={showList} class="add-answer__btn-show-list btn">Показать список активных слов</button>
         <!--      </div>-->
         <!--        <div class="add-answer__btn-wrapper">-->
-        <button onClick={getErrors} class="btn">Изучить ошибки<p>{}</p></button>
-        <button onClick={showListErrors} class="btn">Показать ошибки<p>{}</p></button>
+        <button onClick={getErrors} class="btn">Изучить ошибки<p>12</p></button>
+        <button onClick={showListErrors} class="btn">Показать ошибки<p>12</p></button>
       </div>
 
     </div>
 
-
+    </div>
   </div>
 
 
@@ -569,6 +572,9 @@
 <!--        <p class="text footer__text">Copyright SalmonBellies.no 2019, All Rights Reserved</p>-->
 <!--    </div>-->
 <!--</footer>-->
+
+</div>
+
 <script src="js/app.min.js"></script>
 <!--<script src="js/menu.js"></script>-->
 <script src="js/move.js"></script>
@@ -578,5 +584,7 @@
 
 <!--<div id="root"></div>-->
 <!--<script src="bundle.js"></script>-->
+
 </body>
+
 </html>
