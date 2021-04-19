@@ -1,21 +1,24 @@
 import React from "react";
 import BlockWords from "../block-words/block-words";
-// import {NavWords} from "../nav-words/nav-words";
+import NavWords from "../nav-words/nav-words";
 import BlockErrorWords from "../block-error-words/block-error-words";
+import {connect} from "react-redux";
+import {setActiveWords} from "../../store/action-type";
+
 
 // import {words} from "../../mock/mock"
 
 const Main = (props) => {
-  const {fruits, numbers, orders, seasons, months, days, times, timeIntervals, money, colors, properties} = props;
+  const {activeWords, onSetActiveWords} = props;
 
 
-  const [words, setWords] = React.useState([]); // {start: "начинать"}
-
+  // const [words, setWords] = React.useState([]); // {start: "начинать"}
+  //
   const [errorWords, setErrorWords] = React.useState([]);
   const [trueWords, setTrueWords] = React.useState([]);
   const [inputAnswer, setInputAnswer] = React.useState(``);
   const [numberWord, setNumberWord] = React.useState(null);
-  const [showWord, setShowWord] = React.useState(words[numberWord]);
+  const [showWord, setShowWord] = React.useState(activeWords[numberWord]);
   const [isList, setIsList] = React.useState(false);
   const [isListError, setIsListError] = React.useState(false);
 
@@ -32,9 +35,9 @@ const Main = (props) => {
 
 
   const nextWord = () => {
-    if (numberWord <= words.length - 1) {
+    if (numberWord <= activeWords.length - 1) {
       setNumberWord((prev) => prev + 1)
-    } else if (numberWord === words.length - 1) {
+    } else if (numberWord === activeWords.length - 1) {
       return
       // setNumberWord(words.length - 1)
     }
@@ -60,7 +63,7 @@ const Main = (props) => {
   }
 
   React.useEffect(() => {
-    setShowWord(words[numberWord])
+    setShowWord(activeWords[numberWord])
   }, [numberWord])
 
 
@@ -80,16 +83,16 @@ const Main = (props) => {
     }
   }
 
-  const getFruits = () => {
-    setWords(fruits)
-    setNumberWord(0)
-
-    setTrueWords([])
-    setErrorWords([])
-  }
+  // const getFruits = () => {
+  //   setWords(fruits)
+  //   setNumberWord(0)
+  //
+  //   setTrueWords([])
+  //   setErrorWords([])
+  // }
 
   const getErrors = () => {
-    setWords(errorWords)
+    onSetActiveWords(errorWords)
     setNumberWord(0)
 
     setTrueWords([])
@@ -102,121 +105,49 @@ const Main = (props) => {
     }
   }
 
-  const handleNumbers = () => {
-    setWords(numbers)
-  }
-
-  const handleOrders = () => {
-    setWords(orders)
-  }
-
-  const handleSeasons = () => {
-    setWords(seasons)
-  }
-
-  const handleMonths = () => {
-    setWords(months)
-  }
-
-  const handleDays = () => {
-    setWords(days)
-  }
-
-  const handleTimes = () => {
-    setWords(times)
-  }
-
-  const handleTimeIntervals = () => {
-    setWords(timeIntervals)
-  }
-
-  const handleMoney = () => {
-    setWords(money)
-  }
-
-  const handleColors = () => {
-    setWords(colors)
-  }
-
-  const handleProperties = () => {
-    setWords(properties)
-  }
+  // const handleNumbers = () => {
+  //   setWords(numbers)
+  // }
+  //
+  // const handleOrders = () => {
+  //   setWords(orders)
+  // }
+  //
+  // const handleSeasons = () => {
+  //   setWords(seasons)
+  // }
+  //
+  // const handleMonths = () => {
+  //   setWords(months)
+  // }
+  //
+  // const handleDays = () => {
+  //   setWords(days)
+  // }
+  //
+  // const handleTimes = () => {
+  //   setWords(times)
+  // }
+  //
+  // const handleTimeIntervals = () => {
+  //   setWords(timeIntervals)
+  // }
+  //
+  // const handleMoney = () => {
+  //   setWords(money)
+  // }
+  //
+  // const handleColors = () => {
+  //   setWords(colors)
+  // }
+  //
+  // const handleProperties = () => {
+  //   setWords(properties)
+  // }
 
   return (
     <main className="main">
-      {/*<NavWords/>*/}
-
-
-
-
-
-
-
-
-      <div className="nav-words">
-        <div className="nav-block">
-          <h2 className="nav-block__title">Числа и время</h2>
-          <ul className="nav-block__ul">
-            <li className="nav-block__li">
-              <a className="nav-block__link" onClick={handleNumbers}>Числа</a>
-            </li>
-
-            <li className="nav-block__li">
-              <a className="nav-block__link" onClick={handleOrders}>Порядковые числа</a>
-            </li>
-
-            <li className="nav-block__li">
-              <a className="nav-block__link" onClick={handleSeasons}>Сезон</a>
-            </li>
-
-            <li className="nav-block__li">
-              <a className="nav-block__link" onClick={handleMonths}>Месяцы</a>
-            </li>
-
-            <li className="nav-block__li">
-              <a className="nav-block__link" onClick={handleDays}>Дни</a>
-            </li>
-
-
-            <li className="nav-block__li">
-              <a className="nav-block__link" onClick={handleTimes}>Время</a>
-            </li>
-
-            <li className="nav-block__li">
-              <a className="nav-block__link" onClick={handleTimeIntervals}>Временной интервал</a>
-            </li>
-
-            <li className="nav-block__li">
-              <a className="nav-block__link" onClick={handleMoney}>Деньги</a>
-            </li>
-          </ul>
-        </div>
-
-
-        <div className="nav-block">
-          <h2 className="nav-block__title">Характеристики</h2>
-          <ul className="nav-block__ul">
-            <li className="nav-block__li">
-              <a className="nav-block__link" onClick={handleColors}>Цвета</a>
-            </li>
-
-            <li className="nav-block__li">
-              <a className="nav-block__link" onClick={handleProperties}>Свойства</a>
-            </li>
-
-          </ul>
-        </div>
-
-        <div className="nav-block">
-          <h2 className="nav-block__title">Еда</h2>
-          <ul className="nav-block__ul">
-            <li className="nav-block__li">
-              <a className="nav-block__link" onClick={getFruits}>Фрукты</a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
+      <NavWords/>
 
 
       <div className="block-answer">
@@ -225,12 +156,12 @@ const Main = (props) => {
 
         <div className="statistics">
           <ul className="statistics__ul">
-            <li className="statistics__li">Всего слов: <p>{words.length}</p></li>
+            <li className="statistics__li">Всего слов: <p>{activeWords.length}</p></li>
             <li className="statistics__li">
               Отвечено: <p>{numberWord !== null ? numberWord : 0}</p>
             </li>
             <li className="statistics__li">
-              Осталось: <p>{numberWord !== null ? words.length - numberWord : 0}</p>
+              Осталось: <p>{numberWord !== null ? activeWords.length - numberWord : 0}</p>
             </li>
 
             <li className="statistics__li">
@@ -268,33 +199,25 @@ const Main = (props) => {
         </div>
       </div>
 
-
-
-
-
-
-
-
-
         </div>
     </div>
 
-
-
-
-
-
-      {isList ? <BlockWords words={words}/> : ``}
+      {isList ? <BlockWords words={activeWords}/> : ``}
       {isListError ? <BlockErrorWords errorWords={errorWords}/> : ``}
-
-
-      {/*{isListError ? errorWords.map((errorWord, index) => {*/}
-      {/*return <div key={index}>Object.entries(errorWord).join(``)}</div>}) : ``}*/}
-
 
 </main>
 
 )
 }
 
-export default Main;
+const mapStateToProps = (state) => ({
+  activeWords: state.MAIN.activeWords,
+})
+
+const mapDispatchToProps = (dispatch)=>({
+  onSetActiveWords(activeWords) {
+    dispatch(setActiveWords(activeWords)); // genre это payload дополнитеьная инфа
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
