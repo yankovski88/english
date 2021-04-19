@@ -56,35 +56,43 @@ const NavWords = (props) => {
           <ul className="nav-block__ul">
             <li className="nav-block__li">
               <a className="nav-block__link" onClick={handleNumbers}>Числа</a>
+              <p>{numbers.length}</p>
             </li>
 
             <li className="nav-block__li">
               <a className="nav-block__link" onClick={handleOrders}>Порядковые числа</a>
+              <p>{orders.length}</p>
             </li>
 
             <li className="nav-block__li">
               <a className="nav-block__link" onClick={handleSeasons}>Сезон</a>
+              <p>{seasons.length}</p>
             </li>
 
             <li className="nav-block__li">
               <a className="nav-block__link" onClick={handleMonths}>Месяцы</a>
+              <p>{months.length}</p>
             </li>
 
             <li className="nav-block__li">
               <a className="nav-block__link" onClick={handleDays}>Дни</a>
+              <p>{days.length}</p>
             </li>
 
 
             <li className="nav-block__li">
               <a className="nav-block__link" onClick={handleTimes}>Время</a>
+              <p>{times.length}</p>
             </li>
 
             <li className="nav-block__li">
               <a className="nav-block__link" onClick={handleTimeIntervals}>Временной интервал</a>
+              <p>{timeIntervals.length}</p>
             </li>
 
             <li className="nav-block__li">
               <a className="nav-block__link" onClick={handleMoney}>Деньги</a>
+              <p>{money.length}</p>
             </li>
           </ul>
         </div>
@@ -95,10 +103,12 @@ const NavWords = (props) => {
           <ul className="nav-block__ul">
             <li className="nav-block__li">
               <a className="nav-block__link" onClick={handleColors}>Цвета</a>
+              <p>{colors.length}</p>
             </li>
 
             <li className="nav-block__li">
               <a className="nav-block__link" onClick={handleProperties}>Свойства</a>
+              <p>{properties.length}</p>
             </li>
 
           </ul>
@@ -109,6 +119,7 @@ const NavWords = (props) => {
           <ul className="nav-block__ul">
             <li className="nav-block__li">
               <a className="nav-block__link" onClick={handleFruits}>Фрукты</a>
+              <p>{fruits.length}</p>
             </li>
           </ul>
         </div>
@@ -132,6 +143,7 @@ const mapStateToProps= (state)=>({
   colors: state.MAIN.colors,
   properties: state.MAIN.properties,
 })
+
 
 
 const mapDispatchToProps = (dispatch)=>({

@@ -156,7 +156,7 @@ const Main = (props) => {
 
         <div className="statistics">
           <ul className="statistics__ul">
-            <li className="statistics__li">Всего слов: <p>{activeWords.length}</p></li>
+            {/*<li className="statistics__li">Всего слов: <p>{activeWords.length}</p></li>*/}
             <li className="statistics__li">
               Отвечено: <p>{numberWord !== null ? numberWord : 0}</p>
             </li>
