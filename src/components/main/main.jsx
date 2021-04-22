@@ -188,13 +188,13 @@ const Main = (props) => {
                    placeholder="answer"
             >
         </input>
-            <button onClick={nextWord} className="add-answer__btn-next btn">Следующее</button>
+            <button onClick={nextWord} className="add-answer__btn-next btn">Next word</button>
+            <button onClick={showList} className="add-answer__btn-show-list btn">Показать слова</button>
 
           </div>
         <div className="add-answer__btn-wrapper">
-          <button onClick={showList} className="add-answer__btn-show-list btn">Показать список активных слов</button>
 
-          <button onClick={getErrors} className="btn">Изучить ошибки <p>{errorWords.length}</p></button>
+          <button onClick={getErrors} className="btn">Изучить ошибки<p>{errorWords.length}</p></button>
           <button onClick={showListErrors} className="btn">Показать ошибки<p>{errorWords.length}</p></button>
         </div>
       </div>

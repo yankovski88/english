@@ -7,7 +7,7 @@ const Header = ()=>{
   return (
     <header className="header">
       <div className="header__wrapper">
-        <h1 className="header__title">Запоминай английские слова на максимальной скорости</h1>
+        <h1 className="header__title">Запоминай английские слова быстро</h1>
       </div>
     </header>
   );

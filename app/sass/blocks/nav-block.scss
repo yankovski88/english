@@ -37,4 +37,11 @@ margin-bottom: 20px;
 
 .nav-block__li{
   font-size: 20px;
+  display: flex;
+}
+.nav-block__link{
+  margin-right: 2px;
+};
+.nav-block__li p{
+  color: green;
 }
