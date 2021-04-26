@@ -2,6 +2,7 @@ import {ActionType} from "../action-type";
 import {fruits, numbers, orders, seasons, months, days, times, timeIntervals, money, colors, properties} from "../../mock/mock";
 const initialState = {
   activeWords: [],
+  allErrorWords: [],
   fruits: fruits,
   numbers: numbers,
   orders: orders,

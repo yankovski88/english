@@ -4,12 +4,39 @@ import NavWords from "../nav-words/nav-words";
 import BlockErrorWords from "../block-error-words/block-error-words";
 import {connect} from "react-redux";
 import {setActiveWords} from "../../store/action-type";
-
+import BlockAllWords from "../block-all-error-words/block-all-error-words";
+import BlockAllErrorWords from "../block-all-error-words/block-all-error-words";
+// import {ITodo} from "../../interfaces/interfaces"
 
 // import {words} from "../../mock/mock"
 
 const Main = (props) => {
   const {activeWords, onSetActiveWords} = props;
+  const [todos, setTodos] = React.useState([]) // ITodo[] указали, что ITodo массив
+
+  // забираем элементы
+  React.useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem(`todos`) || `[]`) // в локол сторедж получаем item todos // JSON.parse() начинаем парсить строку т.к. мы ждем массив
+    // as ITodo указали к какому типу будет принадлежать массив
+    setTodos(saved)
+  }, [])
+
+  React.useEffect(() => {
+    localStorage.setItem(`todos`, JSON.stringify(todos))
+  }, [todos]) // если изменяется todos, то он должен записываться в LocalStorage
+
+  // const addHandler = (title) => {
+  //
+  //   // const newTodo: ITodo = {
+  //   //   title: title,
+  //   //   id: Date.now(),
+  //   //   completed: false, // задача не выполнена
+  //   // }
+  //   setTodos((prev) => [newTodo, ...prev]) // такая запись более корректная. prev реакт гарантирует, что это предыдущее состояние стейта
+  //   // setTodos([newTodo, ...todos])
+  // }
+
+
 
 
   // const [words, setWords] = React.useState([]); // {start: "начинать"}
@@ -21,6 +48,7 @@ const Main = (props) => {
   const [showWord, setShowWord] = React.useState(activeWords[numberWord]);
   const [isList, setIsList] = React.useState(false);
   const [isListError, setIsListError] = React.useState(false);
+  const [isAllErrorList, setIsAllErrorList] = React.useState(false);
 
 
 // словосочетание которое сейчас показывается
@@ -57,6 +85,8 @@ const Main = (props) => {
 
       } else if (Object.keys(showWord)[0] !== inputAnswer) {
         setErrorWords((prev) => [showWord, ...prev])
+
+        setTodos((prev) => [showWord, ...prev]) // должно добавлять слова в LoacalStore
       }
       setInputAnswer(``);
     }
@@ -83,6 +113,13 @@ const Main = (props) => {
     }
   }
 
+  const showAllErrorList = () => {
+    if (isAllErrorList) {
+      setIsAllErrorList(false)
+    } else if (!isAllErrorList) {
+      setIsAllErrorList(true)
+    }
+  }
   // const getFruits = () => {
   //   setWords(fruits)
   //   setNumberWord(0)
@@ -93,6 +130,13 @@ const Main = (props) => {
 
   const getErrors = () => {
     onSetActiveWords(errorWords)
+    setNumberWord(0)
+
+    setTrueWords([])
+    setErrorWords([])
+  }
+  const getAllErrors = () => {
+    onSetActiveWords(todos)
     setNumberWord(0)
 
     setTrueWords([])
@@ -196,6 +240,8 @@ const Main = (props) => {
 
           <button onClick={getErrors} className="btn">Изучить ошибки<p>{errorWords.length}</p></button>
           <button onClick={showListErrors} className="btn">Показать ошибки<p>{errorWords.length}</p></button>
+          <button onClick={getAllErrors} className="btn">Изучить все ошибки<p>{todos.length}</p></button>
+          <button onClick={showAllErrorList} className="btn">Показать все ошибки<p>{todos.length}</p></button>
         </div>
       </div>
 
@@ -204,6 +250,7 @@ const Main = (props) => {
 
       {isList ? <BlockWords words={activeWords}/> : ``}
       {isListError ? <BlockErrorWords errorWords={errorWords}/> : ``}
+      {isAllErrorList ? <BlockAllErrorWords allErrorWords={todos}/> : ``}
 
 </main>
 

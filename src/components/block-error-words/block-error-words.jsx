@@ -34,40 +34,6 @@ const BlockErrorWords = (props) => {
               </li>
             )
           })}
-
-
-          {/*{words.map((word, index)=>{*/}
-          {/*  return (*/}
-          {/*    <li className="block-words__li"*/}
-          {/*    key={index}*/}
-          {/*    >*/}
-          {/*      <div className="block-words__couple">*/}
-          {/*        <p className="block-words__number">{`${index}. `}</p>*/}
-          {/*        <p className="block-words__eng">*/}
-          {/*          {word}*/}
-          {/*          {console.log(word)}*/}
-          {/*        </p>*/}
-          {/*        <p className="block-words__delimiter">-</p>*/}
-          {/*        <p className="block-words__ru">один</p>*/}
-          {/*      </div>*/}
-          {/*    </li>*/}
-          {/*  )*/}
-          {/*})*/}
-
-
-          {/*}*/}
-
-          {/*<li className="block-words__li">*/}
-          {/*  <div className="block-words__couple">*/}
-          {/*    <p className="block-words__number">1.</p>*/}
-          {/*    <p className="block-words__eng">*/}
-          {/*      two*/}
-          {/*    </p>*/}
-          {/*    <p className="block-words__delimiter">-</p>*/}
-          {/*    <p className="block-words__ru">два</p>*/}
-          {/*  </div>*/}
-          {/*</li>*/}
-
         </ul>
 
 
