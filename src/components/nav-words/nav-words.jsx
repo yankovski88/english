@@ -49,7 +49,29 @@ const NavWords = (props) => {
     onSetActiveWords(properties)
   }
 
+  const [allWords, setAllWords] = React.useState();
+  const handleAllWords = (event) => {
+
+    // console.log(event.target.value)
+    // event.preventDefault();
+    // if(event.target.value){
+    //   onSetActiveWords([...colors, ...fruits])
+
+      onSetActiveWords([...fruits, ...numbers, ...orders, ...seasons, ...months, ...days, ...times, ...timeIntervals, ...money, ...colors, ...properties])
+    // }
+    // onSetActiveWords([])
+  }
+
   return (
+    <>
+      <div className="checkAllWords">
+        <input
+          // checked={true}
+          // onChange={handleAllWords} />
+          type="checkbox"
+        onChange={(event)=>handleAllWords(event)}/>
+        <p>Для изучения выбрать все слова</p>
+      </div>
       <div className="nav-words">
         <div className="nav-block">
           <h2 className="nav-block__title">Числа и время</h2>
@@ -125,6 +147,7 @@ const NavWords = (props) => {
         </div>
 
       </div>
+    </>
   )
 }
 
