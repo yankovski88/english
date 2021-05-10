@@ -3,7 +3,8 @@ import {connect} from "react-redux";
 import {setActiveWords} from "../../store/action-type";
 
 const NavWords = (props) => {
-  const {onSetActiveWords, fruits, numbers, orders, seasons, months, days, times, timeIntervals, money, colors, properties} = props;
+  const {onSetActiveWords, fruits, numbers, orders, seasons, months, days,
+    times, timeIntervals, money, colors, properties, irregularVerbs} = props;
 
   const handleFruits = () => {
     onSetActiveWords(fruits)
@@ -61,7 +62,9 @@ const NavWords = (props) => {
     // }
     // onSetActiveWords([])
   }
-
+  const handleIrregularVerbs = () => {
+    onSetActiveWords(irregularVerbs)
+  }
   return (
     <>
       <div className="checkAllWords">
@@ -146,6 +149,16 @@ const NavWords = (props) => {
           </ul>
         </div>
 
+        <div className="nav-block">
+          <h2 className="nav-block__title">Неправильные глаголы</h2>
+          <ul className="nav-block__ul">
+            <li className="nav-block__li">
+              <a className="nav-block__link" onClick={handleIrregularVerbs}>Неправильные глаголы</a>
+              <p>{irregularVerbs.length}</p>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </>
   )
@@ -165,6 +178,8 @@ const mapStateToProps= (state)=>({
   money: state.MAIN.money,
   colors: state.MAIN.colors,
   properties: state.MAIN.properties,
+  irregularVerbs: state.MAIN.irregularVerbs,
+
 })
 
 

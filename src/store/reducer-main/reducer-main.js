@@ -1,5 +1,5 @@
 import {ActionType} from "../action-type";
-import {fruits, numbers, orders, seasons, months, days, times, timeIntervals, money, colors, properties} from "../../mock/mock";
+import {fruits, numbers, orders, seasons, months, days, times, timeIntervals, money, colors, properties, irregularVerbs} from "../../mock/mock";
 const initialState = {
   activeWords: [],
   allErrorWords: [],
@@ -14,6 +14,8 @@ const initialState = {
   money: money,
   colors: colors,
   properties: properties,
+  irregularVerbs: irregularVerbs,
+  badAnswers: [],
 }
 
 export const reducerMain = (state = initialState, action) => {
@@ -23,6 +25,11 @@ export const reducerMain = (state = initialState, action) => {
       return {
         ...state,
         activeWords: action.payload
+      };
+    case ActionType.SET_BAD_ANSWERS: // первое загрузили все фильмы
+      return {
+        ...state,
+        badAnswers: [action.payload, ...state.badAnswers]
       };
 
     default:

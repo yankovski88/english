@@ -3,7 +3,7 @@ import BlockWords from "../block-words/block-words";
 import NavWords from "../nav-words/nav-words";
 import BlockErrorWords from "../block-error-words/block-error-words";
 import {connect} from "react-redux";
-import {setActiveWords} from "../../store/action-type";
+import {setActiveWords, setBadAnswers} from "../../store/action-type";
 import BlockAllWords from "../block-all-error-words/block-all-error-words";
 import BlockAllErrorWords from "../block-all-error-words/block-all-error-words";
 // import {ITodo} from "../../interfaces/interfaces"
@@ -11,7 +11,7 @@ import BlockAllErrorWords from "../block-all-error-words/block-all-error-words";
 // import {words} from "../../mock/mock"
 
 const Main = (props) => {
-  const {activeWords, onSetActiveWords} = props;
+  const {activeWords, onSetActiveWords, onSetBadAnswers, badAnswers} = props;
   const [todos, setTodos] = React.useState([]) // ITodo[] указали, что ITodo массив
 
   // забираем элементы
@@ -70,6 +70,7 @@ const Main = (props) => {
       // setNumberWord(words.length - 1)
     }
 
+
     if (showWord !== undefined) {
       if (Object.keys(showWord)[0] === inputAnswer) {
         setTrueWords((prev) => [showWord, ...prev])
@@ -84,6 +85,7 @@ const Main = (props) => {
         }
 
       } else if (Object.keys(showWord)[0] !== inputAnswer) {
+        onSetBadAnswers(inputAnswer);
         setErrorWords((prev) => [showWord, ...prev])
 
         setTodos((prev) => [showWord, ...prev]) // должно добавлять слова в LoacalStore
@@ -188,7 +190,6 @@ const Main = (props) => {
   // const handleProperties = () => {
   //   setWords(properties)
   // }
-
   return (
     <main className="main">
       <NavWords/>
@@ -247,7 +248,7 @@ const Main = (props) => {
 
         </div>
     </div>
-
+<div style={{"color":"red"}}>{badAnswers}</div>
       {isList ? <BlockWords words={activeWords}/> : ``}
       {isListError ? <BlockErrorWords errorWords={errorWords}/> : ``}
       {isAllErrorList ? <BlockAllErrorWords allErrorWords={todos}/> : ``}
@@ -255,15 +256,19 @@ const Main = (props) => {
 </main>
 
 )
-}
+};
 
 const mapStateToProps = (state) => ({
   activeWords: state.MAIN.activeWords,
+  badAnswers: state.MAIN.badAnswers,
 })
 
 const mapDispatchToProps = (dispatch)=>({
   onSetActiveWords(activeWords) {
     dispatch(setActiveWords(activeWords)); // genre это payload дополнитеьная инфа
+  },
+  onSetBadAnswers(badAnswers) {
+    dispatch(setBadAnswers(badAnswers)); // genre это payload дополнитеьная инфа
   },
 });
 

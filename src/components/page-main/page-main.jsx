@@ -12,18 +12,20 @@ import {
   timeIntervals,
   money,
   colors,
-  properties
+  properties, irregularVerbs
 } from "../../mock/mock";
 const PageMain = ()=>{
   return (
     <>
       <Header />
-    <Main fruits = {fruits} numbers = {numbers} orders = {orders}
-          seasons ={seasons} months={months} days={days} times={times}
-          timeIntervals={timeIntervals}
-          money={money}
-          colors={colors}
-          properties={properties}
+    <Main
+      // fruits = {fruits} numbers = {numbers} orders = {orders}
+      //     seasons ={seasons} months={months} days={days} times={times}
+      //     timeIntervals={timeIntervals}
+      //     money={money}
+      //     colors={colors}
+      //     properties={properties}
+      //     irregularVerbs={irregularVerbs}
     />
     </>
   )
