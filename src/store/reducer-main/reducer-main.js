@@ -1,5 +1,9 @@
 import {ActionType} from "../action-type";
-import {fruits, numbers, orders, seasons, months, days, times, timeIntervals, money, colors, properties, irregularVerbs} from "../../mock/mock";
+import {
+  fruits, numbers, orders, seasons, months, days, times,
+  timeIntervals, money, colors, properties, irregularVerbs, thousandWords,
+  secondThousandWords, prepositions
+} from "../../mock/mock";
 const initialState = {
   activeWords: [],
   allErrorWords: [],
@@ -16,6 +20,9 @@ const initialState = {
   properties: properties,
   irregularVerbs: irregularVerbs,
   badAnswers: [],
+  thousandWords: thousandWords,
+  secondThousandWords: secondThousandWords,
+  prepositions: prepositions,
 }
 
 export const reducerMain = (state = initialState, action) => {

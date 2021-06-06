@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {setActiveWords, setBadAnswers} from "../../store/action-type";
 import BlockAllWords from "../block-all-error-words/block-all-error-words";
 import BlockAllErrorWords from "../block-all-error-words/block-all-error-words";
+// import getRandomInRange from "../../mock/mock";
 // import {ITodo} from "../../interfaces/interfaces"
 
 // import {words} from "../../mock/mock"
@@ -190,10 +191,40 @@ const Main = (props) => {
   // const handleProperties = () => {
   //   setWords(properties)
   // }
+
+  const getRandomInRange = (min, max)=> {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  const [text, setText] = React.useState('start');
+
+  const pronouns = ['Я', 'ты', 'он', 'она', 'это', 'мы', 'они']
+  const verbs = ['иду(ет, ем, дут)', 'ходил(ли)', 'пойду(ду, дем)']
+  const rights = ['', '', '', '', 'не']
+  const questions = ['', '', '', '', '?']
+  const getText = (pronouns, verbs, rights, questions)=>{
+    const arr = [];
+    arr.push(pronouns[getRandomInRange(0, pronouns.length -1)])
+    arr.push(rights[getRandomInRange(0, rights.length -1)])
+    arr.push(verbs[getRandomInRange(0, verbs.length -1)])
+    arr.push(questions[getRandomInRange(0, questions.length -1)])
+
+    return arr.join(' ');
+  }
+
+
+  const handleNextText = ()=>{
+    setText(getText(pronouns, verbs, rights, questions))
+
+  }
+
   return (
     <main className="main">
       <NavWords/>
-
+<div style={{display: "flex", flexDirection: "column", alignItems:'center'}}>
+  <div style={{fontSize: "20px"}}>{text}</div>
+  <button onClick={handleNextText} style={{padding: "30px", background: "lightblue"}}>Next</button>
+</div>
 
       <div className="block-answer">
         <div className="block-answer__wrapper">

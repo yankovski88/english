@@ -4,7 +4,9 @@ import {setActiveWords} from "../../store/action-type";
 
 const NavWords = (props) => {
   const {onSetActiveWords, fruits, numbers, orders, seasons, months, days,
-    times, timeIntervals, money, colors, properties, irregularVerbs} = props;
+    times, timeIntervals, money, colors, properties, irregularVerbs, thousandWords,
+    secondThousandWords, prepositions
+  } = props;
 
   const handleFruits = () => {
     onSetActiveWords(fruits)
@@ -49,6 +51,15 @@ const NavWords = (props) => {
   const handleProperties = () => {
     onSetActiveWords(properties)
   }
+  const handleThousandWords = () => {
+    onSetActiveWords(thousandWords)
+  }
+  const handleSecondThousandWords = () => {
+    onSetActiveWords(secondThousandWords)
+  }
+  const handlePrepositions = () => {
+    onSetActiveWords(prepositions)
+  }
 
   const [allWords, setAllWords] = React.useState();
   const handleAllWords = (event) => {
@@ -62,9 +73,13 @@ const NavWords = (props) => {
     // }
     // onSetActiveWords([])
   }
+
+
+
   const handleIrregularVerbs = () => {
     onSetActiveWords(irregularVerbs)
   }
+
   return (
     <>
       <div className="checkAllWords">
@@ -159,6 +174,36 @@ const NavWords = (props) => {
           </ul>
         </div>
 
+        <div className="nav-block">
+          <h2 className="nav-block__title">1000 words</h2>
+          <ul className="nav-block__ul">
+            <li className="nav-block__li">
+              <a className="nav-block__link" onClick={handleThousandWords}>1000 words</a>
+              <p>{thousandWords.length}</p>
+            </li>
+          </ul>
+        </div>
+
+        <div className="nav-block">
+          <h2 className="nav-block__title">1000 words second option</h2>
+          <ul className="nav-block__ul">
+            <li className="nav-block__li">
+              <a className="nav-block__link" onClick={handleSecondThousandWords}>1000 words</a>
+              <p>{secondThousandWords.length}</p>
+            </li>
+          </ul>
+        </div>
+
+        <div className="nav-block">
+          <h2 className="nav-block__title">Предлоги</h2>
+          <ul className="nav-block__ul">
+            <li className="nav-block__li">
+              <a className="nav-block__link" onClick={handlePrepositions}>Предлоги 4 вида</a>
+              <p>{prepositions.length}</p>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </>
   )
@@ -179,7 +224,9 @@ const mapStateToProps= (state)=>({
   colors: state.MAIN.colors,
   properties: state.MAIN.properties,
   irregularVerbs: state.MAIN.irregularVerbs,
-
+  thousandWords: state.MAIN.thousandWords,
+  secondThousandWords: state.MAIN.secondThousandWords,
+  prepositions: state.MAIN.prepositions,
 })
 
 

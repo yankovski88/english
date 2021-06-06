@@ -78,3 +78,9 @@ export const formatTime = (seconds) => {
 
 
 export const isValidEmail = (email) => EMAIL_REGEX.test(email);
+
+
+export const getRandomInRange = (min, max)=> {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+

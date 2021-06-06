@@ -15,6 +15,7 @@ import thunk from "redux-thunk";
 // import "./standart.css";
 // import "./global.css";
 import "../public/public2/css/app.min.css"
+import Gsap from "./components/gsap/gsap";
 
 
 // import "../app/css/app.min.css";
@@ -45,6 +46,7 @@ const store = createStore(
 ReactDom.render(
     // обернули все приложение, теперь есть доступ к хранилищу
     <Provider store={store}>
+      {/*<Gsap/>*/}
       <App/>
     </Provider>,
 
