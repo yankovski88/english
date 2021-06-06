@@ -199,7 +199,7 @@ const Main = (props) => {
   const [text, setText] = React.useState('start');
 
   const pronouns = ['Я', 'ты', 'он', 'она', 'это', 'мы', 'они']
-  const verbs = ['иду(ет, ем, дут)', 'ходил(ли)', 'пойду(ду, дем)']
+  const verbs = ['иду(ет, ем, дут)', 'ходил(ла, ли)', 'пойду(ет, ем, ут)']
   const rights = ['', '', '', '', 'не']
   const questions = ['', '', '', '', '?']
   const getText = (pronouns, verbs, rights, questions)=>{
