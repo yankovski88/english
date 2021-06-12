@@ -226,8 +226,8 @@ const Main = (props) => {
 
 
   const [textBe, setTextBe] = React.useState('startBe');
-  const beNouns = ['доктор', 'бегущий в данный момент(at the moment)']
-  const be = ['был', 'буду']
+  const beNouns = ['доктор', 'сейчас']
+  const be = ['', 'был', 'буду']
   const wordQuestions = ['', '', '','','','','','','','','','','','','', '', 'Что', 'Какой', 'Где', 'Куда',
     'Когда', 'Почему', 'Зачем', 'Кто', 'Как', 'Каким образом']
   const getTextBe = (wordQuestions, pronouns, beNouns, rights, be, questions)=>{
