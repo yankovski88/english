@@ -521,6 +521,9 @@ export const prepositions = [
   {"for": "Для, за, из-за"},
 ];
 
+// https://enginform.com/article/transcription как читать транскрипцию
+// https://myefe.ru/anglijskaya-transkriptsiya.html найти транскрипцию по слову
+// https://iloveenglish.ru/vocabulary/verbs-words транскрипция
 const regularVerbs = [
   {"advance": "продвигать, продвигаться, наступать, наступление, продвижение, авансовый, предварительный "},
   {"[ədˈvɑːns]": ""},

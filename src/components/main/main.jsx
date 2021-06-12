@@ -10,8 +10,14 @@ import BlockAllErrorWords from "../block-all-error-words/block-all-error-words";
 // import {ITodo} from "../../interfaces/interfaces"
 
 // import {words} from "../../mock/mock"
+// import TablVerbsBe from '../../../public/img/tablica-glagola-to-be-ing-image.gif';
+
+// import TablVerbsBe from '../../../public/img/tablica-glagola-to-be-ing-image.gif';
+
 
 const Main = (props) => {
+  // const bg=require('../../../public/img/tablica-glagola-to-be-ing-image.gif')
+
   const {activeWords, onSetActiveWords, onSetBadAnswers, badAnswers} = props;
   const [todos, setTodos] = React.useState([]) // ITodo[] указали, что ITodo массив
 
@@ -200,8 +206,8 @@ const Main = (props) => {
 
   const pronouns = ['Я', 'ты', 'он', 'она', 'это', 'мы', 'они']
   const verbs = ['иду(ет, ем, дут)', 'ходил(ла, ли)', 'пойду(ет, ем, ут)']
-  const rights = ['', '', '', '', 'не']
-  const questions = ['', '', '', '', '?']
+  const rights = [ '', '', '', 'не']
+  const questions = [ '', '', '', '?']
   const getText = (pronouns, verbs, rights, questions)=>{
     const arr = [];
     arr.push(pronouns[getRandomInRange(0, pronouns.length -1)])
@@ -215,17 +221,105 @@ const Main = (props) => {
 
   const handleNextText = ()=>{
     setText(getText(pronouns, verbs, rights, questions))
-
   }
+
+
+  const [textBe, setTextBe] = React.useState('startBe');
+  const beNouns = ['доктор', 'бегущий в данный момент(at the moment)']
+  const be = ['был', 'буду']
+  const wordQuestions = ['', '', '','','','','','','','','','','','','', '', 'Что', 'Какой', 'Где', 'Куда',
+    'Когда', 'Почему', 'Зачем', 'Кто', 'Как', 'Каким образом']
+  const getTextBe = (wordQuestions, pronouns, beNouns, rights, be, questions)=>{
+    const arr = [];
+    // arr.push(wordQuestions[getRandomInRange(0, wordQuestions.length -1)])
+    arr.push(pronouns[getRandomInRange(0, pronouns.length -1)])
+    arr.push(rights[getRandomInRange(0, rights.length -1)])
+    arr.push(be[getRandomInRange(0, be.length -1)])
+    arr.push(beNouns[getRandomInRange(0, beNouns.length -1)])
+    arr.push(questions[getRandomInRange(0, questions.length -1)])
+
+    return arr.join(' ');
+  }
+
+
+  const handleNextTextBe = ()=>{
+    setTextBe(getTextBe(wordQuestions, pronouns, beNouns, rights, be, questions))
+  }
+
 
   return (
     <main className="main">
       <NavWords/>
-<div style={{display: "flex", flexDirection: "column", alignItems:'center'}}>
+<div style={{display: "flex", flexDirection: "column", alignItems:'center', marginBottom: '20px',}}>
   <div style={{fontSize: "20px"}}>{text}</div>
   <button onClick={handleNextText} style={{padding: "30px", background: "lightblue"}}>Next</button>
 </div>
 
+
+      <div style={{display: "flex", flexDirection: "column", alignItems:'center'}}>
+        <div style={{fontSize: "20px"}}>{textBe}</div>
+        <button onClick={handleNextTextBe} style={{padding: "30px", background: "lightgreen"}}>Next</button>
+      </div>
+
+      <div>
+        <p style={{marginBottom: '20px',}}>
+          I will be here (Я буду здесь)She will be a teacher (Она будет учителем)He will be there (Он будет там)You will be a teacher (Ты будешь учителем)We will be in Moscow (Мы будем в Москве)They will be students (Они будут студентами)
+        </p>
+        <p style={{marginBottom: '20px',}}>
+        I am here (Я здесь)She is a teacher (Она Учитель)He is there (Он там)You are a teacher (Ты учитель)We are in Moscow (Мы в Москве)They are students (Они студенты)
+        </p>
+        <p style={{marginBottom: '20px',}}>
+        I was here (Я был здесь)She was a teacher (Она была учителем)He was there (Он был там)You were a teacher (Ты был учителем)We were in Moscow (Мы были в Москве)They were students (Они были студентами)
+        </p>
+        <p style={{marginBottom: '20px',}}>
+        Am I a doctor? (Я доктор?)
+        Is she here? (Она здесь?)
+        Are you a teacher?
+        (Ты учитель?)
+          <br></br>
+          <br></br>
+
+          Was he there?
+        (Он был там?)
+          <br></br>
+          <br></br>
+          Is she your sister?
+        (Она твоя сестра?)
+          <br></br>
+          <br></br>
+          Will he be ready?
+        (Он будет готов?)
+          <br></br>
+          <br></br>
+          Are they not students?
+        (Они не студенты?)
+          <br></br>
+          <br></br>
+          Were we in Moscow?
+        (Мы были в Москве?)
+          <br></br>
+          <br></br>
+          Am I right?
+        (Я прав?)Are you not ready?
+        (Ты не готов?)
+          <br></br>
+          <br></br>
+          Will he be a teacher?
+        (Он будет учителем?)
+          <br></br>
+          <br></br>
+          Was he happy?
+        (Он был счастлив?)
+        </p>
+      </div>
+      {/*<img src={TablVerbsBe}></img>*/}
+      <img src={'https://www.english-polyglot.com/img/tablica-glagola-to-be-ing-image.gif'}></img>
+      <img src={'https://www.english-polyglot.com/img/pronouns-3-columns.gif'}></img>
+
+      {/*<img src={"../../../public/img/tablica-glagola-to-be-ing-image.gif"}></img>*/}
+      {/*<img src="../../../public/img/pronouns-3-columns.gif"></img>*/}
+      {/*<img src="../../../public/img/bg-the-grand-budapest-hotel.jpg"></img>*/}
+{/*<div style={{backgroundImage: 'url("TablVerbsBe")', width: '660px', height: '476px'}}></div>*/}
       <div className="block-answer">
         <div className="block-answer__wrapper">
 
