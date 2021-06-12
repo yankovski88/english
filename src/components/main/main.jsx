@@ -224,6 +224,7 @@ const Main = (props) => {
   }
 
 
+
   const [textBe, setTextBe] = React.useState('startBe');
   const beNouns = ['доктор', 'бегущий в данный момент(at the moment)']
   const be = ['был', 'буду']
