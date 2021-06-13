@@ -6,6 +6,10 @@ import {connect} from "react-redux";
 import {setActiveWords, setBadAnswers} from "../../store/action-type";
 import BlockAllWords from "../block-all-error-words/block-all-error-words";
 import BlockAllErrorWords from "../block-all-error-words/block-all-error-words";
+import * as S from '../main/main.style'
+import styled from 'styled-components'
+import {Link} from "react-router-dom";
+
 // import getRandomInRange from "../../mock/mock";
 // import {ITodo} from "../../interfaces/interfaces"
 
@@ -42,8 +46,6 @@ const Main = (props) => {
   //   setTodos((prev) => [newTodo, ...prev]) // такая запись более корректная. prev реакт гарантирует, что это предыдущее состояние стейта
   //   // setTodos([newTodo, ...todos])
   // }
-
-
 
 
   // const [words, setWords] = React.useState([]); // {start: "начинать"}
@@ -198,7 +200,7 @@ const Main = (props) => {
   //   setWords(properties)
   // }
 
-  const getRandomInRange = (min, max)=> {
+  const getRandomInRange = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
@@ -206,182 +208,254 @@ const Main = (props) => {
 
   const pronouns = ['Я', 'ты', 'он', 'она', 'это', 'мы', 'они']
   const verbs = ['иду(ет, ем, дут)', 'ходил(ла, ли)', 'пойду(ет, ем, ут)']
-  const rights = [ '', '', '', 'не']
-  const questions = [ '', '', '', '?']
-  const getText = (pronouns, verbs, rights, questions)=>{
+  const rights = ['', '', '', 'не']
+  const questions = ['', '', '', '?']
+  const getText = (pronouns, verbs, rights, questions) => {
     const arr = [];
-    arr.push(pronouns[getRandomInRange(0, pronouns.length -1)])
-    arr.push(rights[getRandomInRange(0, rights.length -1)])
-    arr.push(verbs[getRandomInRange(0, verbs.length -1)])
-    arr.push(questions[getRandomInRange(0, questions.length -1)])
+    arr.push(pronouns[getRandomInRange(0, pronouns.length - 1)])
+    arr.push(rights[getRandomInRange(0, rights.length - 1)])
+    arr.push(verbs[getRandomInRange(0, verbs.length - 1)])
+    arr.push(questions[getRandomInRange(0, questions.length - 1)])
 
     return arr.join(' ');
   }
 
 
-  const handleNextText = ()=>{
+  const handleNextText = () => {
     setText(getText(pronouns, verbs, rights, questions))
   }
 
 
-
   const [textBe, setTextBe] = React.useState('startBe');
-  const beNouns = ['доктор', 'сейчас']
+  const beNouns = ['доктор', 'бегующий сейчас']
   const be = ['', 'был', 'буду']
-  const wordQuestions = ['', '', '','','','','','','','','','','','','', '', 'Что', 'Какой', 'Где', 'Куда',
+  const wordQuestions = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Что', 'Какой', 'Где', 'Куда',
     'Когда', 'Почему', 'Зачем', 'Кто', 'Как', 'Каким образом']
-  const getTextBe = (wordQuestions, pronouns, beNouns, rights, be, questions)=>{
+  const getTextBe = (wordQuestions, pronouns, beNouns, rights, be, questions) => {
     const arr = [];
     // arr.push(wordQuestions[getRandomInRange(0, wordQuestions.length -1)])
-    arr.push(pronouns[getRandomInRange(0, pronouns.length -1)])
-    arr.push(rights[getRandomInRange(0, rights.length -1)])
-    arr.push(be[getRandomInRange(0, be.length -1)])
-    arr.push(beNouns[getRandomInRange(0, beNouns.length -1)])
-    arr.push(questions[getRandomInRange(0, questions.length -1)])
+    arr.push(pronouns[getRandomInRange(0, pronouns.length - 1)])
+    arr.push(rights[getRandomInRange(0, rights.length - 1)])
+    arr.push(be[getRandomInRange(0, be.length - 1)])
+    arr.push(beNouns[getRandomInRange(0, beNouns.length - 1)])
+    arr.push(questions[getRandomInRange(0, questions.length - 1)])
 
     return arr.join(' ');
   }
 
 
-  const handleNextTextBe = ()=>{
+  const handleNextTextBe = () => {
     setTextBe(getTextBe(wordQuestions, pronouns, beNouns, rights, be, questions))
+  }
+
+
+// я видел банк. Я ограбил банк.
+  const [textPerfect, setTextPerfect] = React.useState('startPerfect');
+  const [textPerfectTime, setTextPerfectTime] = React.useState();
+  const [textPerfectVerbs, setTextPerfectVerbs] = React.useState();
+
+
+  const perfectNouns = ['банк', 'банк Морган']
+  const perfectVerbs = ['имею увиденным', 'имею ограбленным', 'имел увиденным', 'имел ограбленным', 'буду иметь увиденным', 'буду иметь ограбленным']
+  const to = ['к прошлой неделе', 'к следующей неделе']
+  const toShort = ['к']
+
+
+  // const wordQuestions = ['', '', '','','','','','','','','','','','','', '', 'Что', 'Какой', 'Где', 'Куда',
+  //   'Когда', 'Почему', 'Зачем', 'Кто', 'Как', 'Каким образом']
+  const getTextPerfect = (pronouns, perfectVerbs, rights, perfectNouns, textPerfectTime, questions) => {
+    const arr = [];
+    // arr.push(wordQuestions[getRandomInRange(0, wordQuestions.length -1)])
+    arr.push(pronouns[getRandomInRange(0, pronouns.length - 1)])
+    arr.push(rights[getRandomInRange(0, rights.length - 1)])
+
+    arr.push(perfectVerbs[getRandomInRange(0, perfectVerbs.length - 1)])
+    arr.push(perfectNouns[getRandomInRange(0, perfectNouns.length - 1)])
+    arr.push(toShort[0])
+    // arr.push(textPerfectTime)
+
+    arr.push(questions[getRandomInRange(0, questions.length - 1)])
+
+    return arr.join(' ');
+  }
+
+  const getTimePerfect = (perfectVerbs) => {
+    if (perfectVerbs === 'имел увиденным'){
+      console.log(perfectVerbs, 'имел увиденным')
+      return  to[0]
+      // setTextPerfectTime(to[0]);
+    } else if(perfectVerbs === 'буду иметь увиденным'){
+      // setTextPerfectTime(to[1]);
+      console.log(perfectVerbs, 'буду иметь увиденным')
+
+      return to[1]
+    }
+    console.log(perfectVerbs)
+    return ``
+  }
+
+  const getPerfectHave = (perfectVerbs) => {
+    const arr = [];
+    arr.push(perfectVerbs[getRandomInRange(0, perfectVerbs.length - 1)])
+    return arr.join(' ');
+  }
+
+  const handleNextTextPerfect = () => {
+    setTextPerfectVerbs(getPerfectHave(perfectVerbs))
+
+    setTextPerfectTime(getTimePerfect(textPerfectVerbs));
+    setTextPerfect(getTextPerfect(pronouns, perfectVerbs, rights, perfectNouns, textPerfectTime, questions))
+
   }
 
 
   return (
     <main className="main">
       <NavWords/>
-<div style={{display: "flex", flexDirection: "column", alignItems:'center', marginBottom: '20px',}}>
-  <div style={{fontSize: "20px"}}>{text}</div>
-  <button onClick={handleNextText} style={{padding: "30px", background: "lightblue"}}>Next</button>
-</div>
+      {/*<S.StyleCom src={"https://docs.google.com/spreadsheets/d/1o1wdZkwCA9Q8uXo_dTRG32qlcJ2F6G1X6hLkkAPGDUo/edit?usp=sharing"}>Link</S.StyleCom>*/}
+      <a
+        href="https://docs.google.com/spreadsheets/d/1o1wdZkwCA9Q8uXo_dTRG32qlcJ2F6G1X6hLkkAPGDUo/edit?usp=sharing">Link</a>
+      {/*<Link to={'www.google.com'}>asd</Link>*/}
+      <div style={{display: "flex", flexDirection: "column", alignItems: 'center', marginBottom: '20px',}}>
+        <div style={{fontSize: "20px"}}>{text}</div>
+        <button onClick={handleNextText} style={{padding: "30px", background: "lightblue"}}>Next</button>
+      </div>
 
 
-      <div style={{display: "flex", flexDirection: "column", alignItems:'center'}}>
+      <div style={{display: "flex", flexDirection: "column", alignItems: 'center'}}>
         <div style={{fontSize: "20px"}}>{textBe}</div>
         <button onClick={handleNextTextBe} style={{padding: "30px", background: "lightgreen"}}>Next</button>
       </div>
 
       <div>
         <p style={{marginBottom: '20px',}}>
-          I will be here (Я буду здесь)She will be a teacher (Она будет учителем)He will be there (Он будет там)You will be a teacher (Ты будешь учителем)We will be in Moscow (Мы будем в Москве)They will be students (Они будут студентами)
+          I will be here (Я буду здесь)She will be a teacher (Она будет учителем)He will be there (Он будет там)You will
+          be a teacher (Ты будешь учителем)We will be in Moscow (Мы будем в Москве)They will be students (Они будут
+          студентами)
         </p>
         <p style={{marginBottom: '20px',}}>
-        I am here (Я здесь)She is a teacher (Она Учитель)He is there (Он там)You are a teacher (Ты учитель)We are in Moscow (Мы в Москве)They are students (Они студенты)
+          I am here (Я здесь)She is a teacher (Она Учитель)He is there (Он там)You are a teacher (Ты учитель)We are in
+          Moscow (Мы в Москве)They are students (Они студенты)
         </p>
         <p style={{marginBottom: '20px',}}>
-        I was here (Я был здесь)She was a teacher (Она была учителем)He was there (Он был там)You were a teacher (Ты был учителем)We were in Moscow (Мы были в Москве)They were students (Они были студентами)
+          I was here (Я был здесь)She was a teacher (Она была учителем)He was there (Он был там)You were a teacher (Ты
+          был учителем)We were in Moscow (Мы были в Москве)They were students (Они были студентами)
         </p>
         <p style={{marginBottom: '20px',}}>
-        Am I a doctor? (Я доктор?)
-        Is she here? (Она здесь?)
-        Are you a teacher?
-        (Ты учитель?)
+          Am I a doctor? (Я доктор?)
+          Is she here? (Она здесь?)
+          Are you a teacher?
+          (Ты учитель?)
           <br></br>
           <br></br>
 
           Was he there?
-        (Он был там?)
+          (Он был там?)
           <br></br>
           <br></br>
           Is she your sister?
-        (Она твоя сестра?)
+          (Она твоя сестра?)
           <br></br>
           <br></br>
           Will he be ready?
-        (Он будет готов?)
+          (Он будет готов?)
           <br></br>
           <br></br>
           Are they not students?
-        (Они не студенты?)
+          (Они не студенты?)
           <br></br>
           <br></br>
           Were we in Moscow?
-        (Мы были в Москве?)
+          (Мы были в Москве?)
           <br></br>
           <br></br>
           Am I right?
-        (Я прав?)Are you not ready?
-        (Ты не готов?)
+          (Я прав?)Are you not ready?
+          (Ты не готов?)
           <br></br>
           <br></br>
           Will he be a teacher?
-        (Он будет учителем?)
+          (Он будет учителем?)
           <br></br>
           <br></br>
           Was he happy?
-        (Он был счастлив?)
+          (Он был счастлив?)
         </p>
       </div>
       {/*<img src={TablVerbsBe}></img>*/}
       <img src={'https://www.english-polyglot.com/img/tablica-glagola-to-be-ing-image.gif'}></img>
       <img src={'https://www.english-polyglot.com/img/pronouns-3-columns.gif'}></img>
+      <img src={'https://cs8.pikabu.ru/post_img/big/2018/03/14/10/1521046812187426703.jpg'}></img>
+
+
+      <div style={{display: "flex", flexDirection: "column", alignItems: 'center', marginBottom: '20px',}}>
+        <div style={{fontSize: "20px"}}>{textPerfect}</div>
+        <button onClick={handleNextTextPerfect} style={{padding: "30px", background: "lightcoral"}}>Next</button>
+      </div>
 
       {/*<img src={"../../../public/img/tablica-glagola-to-be-ing-image.gif"}></img>*/}
       {/*<img src="../../../public/img/pronouns-3-columns.gif"></img>*/}
       {/*<img src="../../../public/img/bg-the-grand-budapest-hotel.jpg"></img>*/}
-{/*<div style={{backgroundImage: 'url("TablVerbsBe")', width: '660px', height: '476px'}}></div>*/}
+      {/*<div style={{backgroundImage: 'url("TablVerbsBe")', width: '660px', height: '476px'}}></div>*/}
       <div className="block-answer">
         <div className="block-answer__wrapper">
 
 
-        <div className="statistics">
-          <ul className="statistics__ul">
-            {/*<li className="statistics__li">Всего слов: <p>{activeWords.length}</p></li>*/}
-            <li className="statistics__li">
-              Отвечено: <p>{numberWord !== null ? numberWord : 0}</p>
-            </li>
-            <li className="statistics__li">
-              Осталось: <p>{numberWord !== null ? activeWords.length - numberWord : 0}</p>
-            </li>
+          <div className="statistics">
+            <ul className="statistics__ul">
+              {/*<li className="statistics__li">Всего слов: <p>{activeWords.length}</p></li>*/}
+              <li className="statistics__li">
+                Отвечено: <p>{numberWord !== null ? numberWord : 0}</p>
+              </li>
+              <li className="statistics__li">
+                Осталось: <p>{numberWord !== null ? activeWords.length - numberWord : 0}</p>
+              </li>
 
-            <li className="statistics__li">
-              Правильные ответы: <p>{trueWords.length}</p>
-            </li>
-          </ul>
+              <li className="statistics__li">
+                Правильные ответы: <p>{trueWords.length}</p>
+              </li>
+            </ul>
 
-
-        </div>
-
-
-
-
-        <div className="add-answer">
-          <div className="add-answer__word">
-            {showWord ? Object.values(showWord) : ``}
-          </div>
-          <div className="add-answer__input-wrap">
-
-            <input type="text" className="add-answer__input"
-                   onKeyPress={handleKeyPressEnter}
-                   value={inputAnswer}
-                   onChange={(event) => enterValue(event)}
-                   placeholder="answer"
-            >
-        </input>
-            <button onClick={nextWord} className="add-answer__btn-next btn">Next word</button>
-            <button onClick={showList} className="add-answer__btn-show-list btn">Показать слова</button>
 
           </div>
-        <div className="add-answer__btn-wrapper">
 
-          <button onClick={getErrors} className="btn">Изучить ошибки<p>{errorWords.length}</p></button>
-          <button onClick={showListErrors} className="btn">Показать ошибки<p>{errorWords.length}</p></button>
-          <button onClick={getAllErrors} className="btn">Изучить все ошибки<p>{todos.length}</p></button>
-          <button onClick={showAllErrorList} className="btn">Показать все ошибки<p>{todos.length}</p></button>
+
+          <div className="add-answer">
+            <div className="add-answer__word">
+              {showWord ? Object.values(showWord) : ``}
+            </div>
+            <div className="add-answer__input-wrap">
+
+              <input type="text" className="add-answer__input"
+                     onKeyPress={handleKeyPressEnter}
+                     value={inputAnswer}
+                     onChange={(event) => enterValue(event)}
+                     placeholder="answer"
+              >
+              </input>
+              <button onClick={nextWord} className="add-answer__btn-next btn">Next word</button>
+              <button onClick={showList} className="add-answer__btn-show-list btn">Показать слова</button>
+
+            </div>
+            <div className="add-answer__btn-wrapper">
+
+              <button onClick={getErrors} className="btn">Изучить ошибки<p>{errorWords.length}</p></button>
+              <button onClick={showListErrors} className="btn">Показать ошибки<p>{errorWords.length}</p></button>
+              <button onClick={getAllErrors} className="btn">Изучить все ошибки<p>{todos.length}</p></button>
+              <button onClick={showAllErrorList} className="btn">Показать все ошибки<p>{todos.length}</p></button>
+            </div>
+          </div>
+
         </div>
       </div>
-
-        </div>
-    </div>
-<div style={{"color":"red"}}>{badAnswers}</div>
+      <div style={{"color": "red"}}>{badAnswers}</div>
       {isList ? <BlockWords words={activeWords}/> : ``}
       {isListError ? <BlockErrorWords errorWords={errorWords}/> : ``}
       {isAllErrorList ? <BlockAllErrorWords allErrorWords={todos}/> : ``}
 
-</main>
+    </main>
 
-)
+  )
 };
 
 const mapStateToProps = (state) => ({
@@ -389,7 +463,7 @@ const mapStateToProps = (state) => ({
   badAnswers: state.MAIN.badAnswers,
 })
 
-const mapDispatchToProps = (dispatch)=>({
+const mapDispatchToProps = (dispatch) => ({
   onSetActiveWords(activeWords) {
     dispatch(setActiveWords(activeWords)); // genre это payload дополнитеьная инфа
   },
@@ -397,5 +471,6 @@ const mapDispatchToProps = (dispatch)=>({
     dispatch(setBadAnswers(badAnswers)); // genre это payload дополнитеьная инфа
   },
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
