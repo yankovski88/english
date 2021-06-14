@@ -255,11 +255,30 @@ const Main = (props) => {
   const [textPerfectVerbs, setTextPerfectVerbs] = React.useState();
 
 
+
+
+
+
   const perfectNouns = ['банк', 'банк Морган']
   const perfectVerbs = ['имею увиденным', 'имею ограбленным', 'имел увиденным', 'имел ограбленным', 'буду иметь увиденным', 'буду иметь ограбленным']
-  const to = ['к прошлой неделе', 'к следующей неделе']
+  const to = ['к прошлой неделе', 'к следующей неделе'] // by next week // к концу дня - by the end of the day.
   const toShort = ['к']
 
+  const getTimePerfect = (arrMain, perfectVerbs, arr) => {
+    if (arrMain.includes(perfectVerbs[2])  || arrMain.includes(perfectVerbs[3])){
+      return  arr[0]
+    } else if(arrMain.includes(perfectVerbs[4]) || arrMain.includes(perfectVerbs[5])){
+
+      return arr[1]
+    }
+    return ``
+  }
+
+  const getPerfectHave = (perfectVerbs) => {
+    const arr = [];
+    arr.push(perfectVerbs[getRandomInRange(0, perfectVerbs.length - 1)])
+    return arr.join(' ');
+  }
 
   // const wordQuestions = ['', '', '','','','','','','','','','','','','', '', 'Что', 'Какой', 'Где', 'Куда',
   //   'Когда', 'Почему', 'Зачем', 'Кто', 'Как', 'Каким образом']
@@ -271,41 +290,16 @@ const Main = (props) => {
 
     arr.push(perfectVerbs[getRandomInRange(0, perfectVerbs.length - 1)])
     arr.push(perfectNouns[getRandomInRange(0, perfectNouns.length - 1)])
-    arr.push(toShort[0])
-    // arr.push(textPerfectTime)
+    arr.push(getTimePerfect(arr, perfectVerbs, to))
 
     arr.push(questions[getRandomInRange(0, questions.length - 1)])
-
     return arr.join(' ');
   }
 
-  const getTimePerfect = (perfectVerbs) => {
-    if (perfectVerbs === 'имел увиденным'){
-      console.log(perfectVerbs, 'имел увиденным')
-      return  to[0]
-      // setTextPerfectTime(to[0]);
-    } else if(perfectVerbs === 'буду иметь увиденным'){
-      // setTextPerfectTime(to[1]);
-      console.log(perfectVerbs, 'буду иметь увиденным')
 
-      return to[1]
-    }
-    console.log(perfectVerbs)
-    return ``
-  }
-
-  const getPerfectHave = (perfectVerbs) => {
-    const arr = [];
-    arr.push(perfectVerbs[getRandomInRange(0, perfectVerbs.length - 1)])
-    return arr.join(' ');
-  }
 
   const handleNextTextPerfect = () => {
-    setTextPerfectVerbs(getPerfectHave(perfectVerbs))
-
-    setTextPerfectTime(getTimePerfect(textPerfectVerbs));
     setTextPerfect(getTextPerfect(pronouns, perfectVerbs, rights, perfectNouns, textPerfectTime, questions))
-
   }
 
 
