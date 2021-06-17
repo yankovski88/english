@@ -260,8 +260,9 @@ const Main = (props) => {
 
 
   const perfectNouns = ['банк', 'банк Морган']
-  const perfectVerbs = ['имею увиденным', 'имею ограбленным', 'имел увиденным', 'имел ограбленным', 'буду иметь увиденным', 'буду иметь ограбленным']
-  const to = ['к прошлой неделе', 'к следующей неделе'] // by next week // к концу дня - by the end of the day.
+  const perfectVerbs = ['видел', 'ограбил', 'увижу', 'ограблю']
+  // const perfectVerbs = ['имею увиденным', 'имею ограбленным', 'имел увиденным', 'имел ограбленным', 'буду иметь увиденным', 'буду иметь ограбленным']
+  const to = ['к', 'к'] // by next week // к концу дня - by the end of the day.
   const toShort = ['к']
 
   const getTimePerfect = (arrMain, perfectVerbs, arr) => {
@@ -280,6 +281,7 @@ const Main = (props) => {
     return arr.join(' ');
   }
 
+  // I have been to Bratislava — Я был (бывал) в Братиславе
   // const wordQuestions = ['', '', '','','','','','','','','','','','','', '', 'Что', 'Какой', 'Где', 'Куда',
   //   'Когда', 'Почему', 'Зачем', 'Кто', 'Как', 'Каким образом']
   const getTextPerfect = (pronouns, perfectVerbs, rights, perfectNouns, textPerfectTime, questions) => {
@@ -379,6 +381,7 @@ const Main = (props) => {
       {/*<img src={TablVerbsBe}></img>*/}
       <img src={'https://www.english-polyglot.com/img/tablica-glagola-to-be-ing-image.gif'}></img>
       <img src={'https://www.english-polyglot.com/img/pronouns-3-columns.gif'}></img>
+      <img src={'https://puzzle-english.com/wp-content/uploads/tenses1.jpg'}></img>
       <img src={'https://cs8.pikabu.ru/post_img/big/2018/03/14/10/1521046812187426703.jpg'}></img>
 
 
@@ -386,6 +389,53 @@ const Main = (props) => {
         <div style={{fontSize: "20px"}}>{textPerfect}</div>
         <button onClick={handleNextTextPerfect} style={{padding: "30px", background: "lightcoral"}}>Next</button>
       </div>
+
+
+      <p>
+        <b style={{color: "red"}}>Future Perfect (Будущее совершенное время)</b>
+        <br></br>
+
+        Future Perfect используется в тех ситуациях, когда нам нужно сообщить о действии, которое завершится до определенного момента в будущем: «I will have written the article by night — Я напишу статью к ночи». Будущее совершенное время мы также употребляем, когда говорим о каком-то предполагаем действии, которое имело место в прошлом. Иными словами, Future Perfect нужно для того, чтобы выразить предположение о том, что вероятно произошло. Например, «You will have noticed our attitude to this problem — Ты (наверняка) заметил наше отношение к этой проблеме».
+        <br></br>
+
+        Фразами-маркерами для Future Perfect также служат обстоятельства времени, которые указывают момент для завершения действия:
+
+        · by Sunday (к воскресенью);
+        · by that time (к тому времени);
+        · by 2033 (к 2033).
+      </p>
+
+      <p>
+
+        <b style={{color: "red"}}>Present Perfect (Настоящее совершенное время)</b>
+        <br></br>
+
+        Примеры Present Perfect в школьных учебниках далеко не всегда позволяют составить полную картину того, как же в действительности использовать это время. На самом деле оно очень широко распространено. Present Perfect обычно применяют в таких ситуациях:
+        Узнать больше
+        <br></br>
+
+        Для обозначения действия, которое уже абсолютно завершено в прошлом, но, тем не менее, оно еще связано с настоящим посредством результата (I have read this book so you can take it — Я уже прочитал эту книгу, так что ты ее можешь взять);
+        Для характеристики действия, которое началось в прошлом, но, при этом, оно продолжается и в настоящий момент (I have lived in London for 6 years — Мы живем в Лондоне 6 лет).
+        В предложениях с настоящим совершенным временем часто встречаются наречия и обстоятельства, подчеркивающие результативность действия:
+
+        · never (никогда);
+        · just (только что);
+        · already (уже);
+        · yet (еще);
+        · ever (когда-либо);
+
+        Например: Have you ever been to Cyprus? — Ты когда-либо был на Кипре?
+
+      </p>
+
+
+      <p>
+        <b style={{color: "red"}}>Past Perfect (Прошедшее совершенное время)</b><br></br>
+        Если действие завершилось до какого-то определенного момента или действия в прошлом, то, согласно правилам английской грамматики, придется выбрать время Past Perfect. Например, «The rain had stopped before he woke up — Дождь завершился до того, как он проснулся». Или: «By that time they had finished their work — К тому времени они закончили свою работу».
+        <br></br>
+        Опознать Past Perfect часто можно по союзу by и обстоятельствам времени, вроде: by that time (к тому времени), by Monday (к понедельнику), by then (к тому времени) и т. п.
+      </p>
+      <br></br>
 
       {/*<img src={"../../../public/img/tablica-glagola-to-be-ing-image.gif"}></img>*/}
       {/*<img src="../../../public/img/pronouns-3-columns.gif"></img>*/}
