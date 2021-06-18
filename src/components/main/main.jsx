@@ -262,18 +262,28 @@ const Main = (props) => {
   const perfectNouns = ['банк', 'банк Морган']
   const perfectVerbs = ['видел', 'ограбил', 'увижу', 'ограблю']
   // const perfectVerbs = ['имею увиденным', 'имею ограбленным', 'имел увиденным', 'имел ограбленным', 'буду иметь увиденным', 'буду иметь ограбленным']
-  const to = ['к', 'к'] // by next week // к концу дня - by the end of the day.
+  const to = ['к, до', 'к, до'] // by next week // к концу дня - by the end of the day.
   const toShort = ['к']
 
   const getTimePerfect = (arrMain, perfectVerbs, arr) => {
-    if (arrMain.includes(perfectVerbs[2])  || arrMain.includes(perfectVerbs[3])){
+    if (arrMain.includes(perfectVerbs[0])  || arrMain.includes(perfectVerbs[1])){
       return  arr[0]
-    } else if(arrMain.includes(perfectVerbs[4]) || arrMain.includes(perfectVerbs[5])){
+    } else if(arrMain.includes(perfectVerbs[2]) || arrMain.includes(perfectVerbs[3])){
 
       return arr[1]
     }
     return ``
   }
+
+  // const getTimePerfect = (arrMain, perfectVerbs, arr) => {
+  //   if (arrMain.includes(perfectVerbs[2])  || arrMain.includes(perfectVerbs[3])){
+  //     return  arr[0]
+  //   } else if(arrMain.includes(perfectVerbs[4]) || arrMain.includes(perfectVerbs[5])){
+  //
+  //     return arr[1]
+  //   }
+  //   return ``
+  // }
 
   const getPerfectHave = (perfectVerbs) => {
     const arr = [];
@@ -299,10 +309,55 @@ const Main = (props) => {
   }
 
 
-
   const handleNextTextPerfect = () => {
     setTextPerfect(getTextPerfect(pronouns, perfectVerbs, rights, perfectNouns, textPerfectTime, questions))
   }
+
+
+
+
+
+// I have been learning english for 5 years. Я изучаю английский 5 лет.(Я имею побытым изучающим английский 5 лет)
+  const [textPerfectContinuous, setTextPerfectContinuous] = React.useState();
+  const perfectContinuousNouns = ['объект 5 лет', 'объект JS 5 лет']
+  const perfectContinuousVerbs = ['изучаю', 'изучал', 'буду изучать',]
+  // const perfectVerbs = ['имею увиденным', 'имею ограбленным', 'имел увиденным', 'имел ограбленным', 'буду иметь увиденным', 'буду иметь ограбленным']
+  const toPerfectContinuous = ['до прошлой недели', 'к следующей неделе'] // by next week // к концу дня - by the end of the day.
+  // const toShort = ['к']
+
+  const getTimePerfectContinuous = (arrMain, perfectContinuousVerbs, arr) => {
+    if (arrMain.includes(perfectContinuousVerbs[1])){
+      return  arr[0]
+    } else if(arrMain.includes(perfectContinuousVerbs[2])){
+
+      return arr[1]
+    }
+    return ``
+  }
+
+  // const wordQuestions = ['', '', '','','','','','','','','','','','','', '', 'Что', 'Какой', 'Где', 'Куда',
+  //   'Когда', 'Почему', 'Зачем', 'Кто', 'Как', 'Каким образом']
+  const getTextPerfectContinuous = (pronouns, rights, perfectContinuousVerbs, perfectContinuousNouns, questions) => {
+    const arr = [];
+    // arr.push(wordQuestions[getRandomInRange(0, wordQuestions.length -1)])
+    arr.push(pronouns[getRandomInRange(0, pronouns.length - 1)])
+    arr.push(rights[getRandomInRange(0, rights.length - 1)])
+
+    arr.push(perfectContinuousVerbs[getRandomInRange(0, perfectContinuousVerbs.length - 1)])
+    arr.push(perfectContinuousNouns[getRandomInRange(0, perfectContinuousNouns.length - 1)])
+    arr.push(getTimePerfectContinuous(arr, perfectContinuousVerbs, toPerfectContinuous))
+
+    arr.push(questions[getRandomInRange(0, questions.length - 1)])
+    return arr.join(' ');
+  }
+
+
+
+  const handleNextTextPerfectContinuous = () => {
+    setTextPerfectContinuous(getTextPerfectContinuous(pronouns, rights, perfectContinuousVerbs, perfectContinuousNouns, questions))
+  }
+
+
 
 
   return (
@@ -437,10 +492,53 @@ const Main = (props) => {
       </p>
       <br></br>
 
+
       {/*<img src={"../../../public/img/tablica-glagola-to-be-ing-image.gif"}></img>*/}
       {/*<img src="../../../public/img/pronouns-3-columns.gif"></img>*/}
       {/*<img src="../../../public/img/bg-the-grand-budapest-hotel.jpg"></img>*/}
       {/*<div style={{backgroundImage: 'url("TablVerbsBe")', width: '660px', height: '476px'}}></div>*/}
+
+
+
+      <div style={{display: "flex", flexDirection: "column", alignItems: 'center', marginBottom: '20px',}}>
+        <div style={{fontSize: "20px"}}>{textPerfectContinuous}</div>
+        <button onClick={handleNextTextPerfectContinuous} style={{padding: "30px", background: "lightsalmon"}}>Next</button>
+      </div>
+
+      <div>
+        <p>
+        <b style={{color: "red"}}> Present Perfect Continuous (Настоящее совершенное продолженное)</b><br></br>
+        Present Perfect Continuous показывает действие, начавшееся в прошлом и продолжающееся на момента речи. Например: «She has been working for 5 hours already — Она уже работает 5 часов». Также это время используется для характеристики только что завершившегося длительного действия, результат которого влияет на настоящее: «I'm tired. We have been working all night — Я устал. Мы работали всю ночь».
+
+        Во фразах с настоящим совершенным продолженным временем в английском часто встречаются обстоятельства времени и прочие словосочетания, которые обозначают тот временной отрезок, в течение которого совершается действие. Например:
+        Узнать больше
+
+        · for a week (в течение недели);
+        · since morning (с утра);
+        · lately (в последнее время);
+        · all my life (всю мою жизнь) и т. п.
+        </p>
+        <p>
+          <b style={{color: "red"}}> Past Perfect Continuous (Прошедшее совершенное продолженное)</b><br></br>
+        Время Past Perfect Continuous похоже на предыдущее, однако описывает растянутое действие, которое началось в прошлом до определенного момента (который произошел также в прошлом и всегда употребляется в Past Simple). Этот процесс может продолжаться или же завершиться непосредственно прямо перед этим самым моментом.
+
+        «Tom had been reading for 2 hours when Jane came — Том читал уже на протяжении двух часов, когда пришла Джейн». В данном случае действие началось до того, как пришла Джейн. При этом, Том продолжает читать даже после того, как его прервали.
+
+        Для прошедшего совершенного продолженного времени характерно использование временных фраз-маркеров, вроде:
+
+        · for five months (в течение 5 месяцев);
+        · for a long time (в течение долгого времени);
+        · since 7 o'clock (с 7-ми часов) и т. п.
+        </p>
+        <p>
+        <b style={{color: "red"}}> Future Perfect Continuous (Будущее совершенное продолженное)</b><br></br>
+        Среди всех времен английской грамматики Future Perfect Continuous встречается в речи реже всего. Это время описывает продолжительное действие, которое начнется в будущем и будет происходить до определенного момента (он употребляется в Future Simple):
+
+        He will have been resting for a week when she joins him — Он будет отдыхать уже целую неделю, когда она присоединится к нему.
+        </p>
+      </div>
+
+
       <div className="block-answer">
         <div className="block-answer__wrapper">
 
