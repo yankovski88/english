@@ -262,15 +262,15 @@ const Main = (props) => {
   const perfectNouns = ['банк', 'банк Морган']
   const perfectVerbs = ['видел', 'ограбил', 'увижу', 'ограблю']
   // const perfectVerbs = ['имею увиденным', 'имею ограбленным', 'имел увиденным', 'имел ограбленным', 'буду иметь увиденным', 'буду иметь ограбленным']
-  const to = ['к, до', 'к, до'] // by next week // к концу дня - by the end of the day.
+  const to = ['', 'к, до', 'к, до'] // by next week // к концу дня - by the end of the day.
   const toShort = ['к']
 
   const getTimePerfect = (arrMain, perfectVerbs, arr) => {
     if (arrMain.includes(perfectVerbs[0])  || arrMain.includes(perfectVerbs[1])){
-      return  arr[0]
+      return  arr[getRandomInRange(0, 1)]
     } else if(arrMain.includes(perfectVerbs[2]) || arrMain.includes(perfectVerbs[3])){
 
-      return arr[1]
+      return arr[2]
     }
     return ``
   }
@@ -360,6 +360,34 @@ const Main = (props) => {
 
 
 
+
+
+  const [textBeThere, setTextBeThere] = React.useState('startBeThere');
+  const beThereNouns = ['яблоко', 'яблоки', 'самое большое яблоко',]
+  const beThere = ['', 'был', 'буду']
+  const wordThereQuestions = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Что', 'Какой', 'Где', 'Куда',
+    'Когда', 'Почему', 'Зачем', 'Кто', 'Как', 'Каким образом']
+  const therePronouns = ['там'];
+
+  const getTextBeThere = (wordQuestions, therePronouns, beNouns, rights, be, questions) => {
+    const arr = [];
+    // arr.push(wordQuestions[getRandomInRange(0, wordQuestions.length -1)])
+    arr.push(therePronouns[getRandomInRange(0, therePronouns.length - 1)])
+    arr.push(rights[getRandomInRange(0, rights.length - 1)])
+    arr.push(beThere[getRandomInRange(0, beThere.length - 1)])
+    arr.push(beThereNouns[getRandomInRange(0, beThereNouns.length - 1)])
+    arr.push(questions[getRandomInRange(0, questions.length - 1)])
+
+    return arr.join(' ');
+  }
+
+
+  const handleNextTextBeThere = () => {
+    setTextBeThere(getTextBeThere(wordQuestions, therePronouns, beThereNouns, rights, beThere, questions))
+  }
+
+
+
   return (
     <main className="main">
       <NavWords/>
@@ -438,7 +466,25 @@ const Main = (props) => {
       <img src={'https://www.english-polyglot.com/img/pronouns-3-columns.gif'}></img>
       <img src={'https://puzzle-english.com/wp-content/uploads/tenses1.jpg'}></img>
       <img src={'https://cs8.pikabu.ru/post_img/big/2018/03/14/10/1521046812187426703.jpg'}></img>
+      <img src={'https://valente-shop.ru/wp-content/uploads/2018/06/Predlogi_vremeni_i_mesta_at__in__on_-_uchim_angliyskiy_sami_1.jpg'}></img>
+      <img src={'https://lingvoelf.ru/images/english_grammar/at_on_in.JPG'}></img>
+      <img src={'https://mcenglish.ru/wp-content/uploads/2017/12/gj-e1512566051320.jpg'}></img>
+      Пассивный залог
+      {/*https://pikabu.ru/story/tablitsa_vremen_passivnyiy_zalog_dlya_nachinayushchikh_4725956*/}
+      <img src={'https://cs9.pikabu.ru/post_img/2017/01/01/6/1483259668167141583.png'}></img>
+      <img src={'https://cs9.pikabu.ru/post_img/2017/01/01/6/1483260145121156049.png'}></img>
 
+      <img src={'https://puzzle-english.com/wp-content/uploads/001.png'}></img>
+      <img src={'https://puzzle-english.com/wp-content/uploads/002.png'}></img>
+
+      <a href='https://www.study.ru/article/fonetika-angliyskogo/transkripciya-i-pravila-chteniya#rem'>Транскрипция</a>
+      <a href='https://enginform.com/article/transcription'>Транскрипция детальная</a>
+      <a href='https://myefe.ru/anglijskaya-transkriptsiya.html'>Сервис для транскрипции</a>
+      {/*https://iloveenglish.ru/stories/view/vse-o-transkriptsii-v-anglijskom-yazike*/}
+
+
+
+<div><a href='https://www.bkc.ru/blog/about-language/grammar/predlogi-v-angliyskom-yazyke/'>Предлоги</a></div>
 
       <div style={{display: "flex", flexDirection: "column", alignItems: 'center', marginBottom: '20px',}}>
         <div style={{fontSize: "20px"}}>{textPerfect}</div>
@@ -537,6 +583,26 @@ const Main = (props) => {
         He will have been resting for a week when she joins him — Он будет отдыхать уже целую неделю, когда она присоединится к нему.
         </p>
       </div>
+
+
+      <div style={{display: "flex", flexDirection: "column", alignItems: 'center'}}>
+        <div style={{fontSize: "20px"}}>{textBeThere}</div>
+        <button onClick={handleNextTextBeThere} style={{padding: "30px", background: "lightseagreen"}}>Next</button>
+      </div>
+
+<a href='https://poliglot16.ru/en/urok15/'>Таблица There</a>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
       <div className="block-answer">
