@@ -5,7 +5,7 @@ import {setActiveWords} from "../../store/action-type";
 const NavWords = (props) => {
   const {onSetActiveWords, fruits, numbers, orders, seasons, months, days,
     times, timeIntervals, money, colors, properties, irregularVerbs, thousandWords,
-    secondThousandWords, prepositions
+    secondThousandWords, prepositions, regularVerbs
   } = props;
 
   const handleFruits = () => {
@@ -80,6 +80,9 @@ const NavWords = (props) => {
     onSetActiveWords(irregularVerbs)
   }
 
+  const handleVerbs = () => {
+    onSetActiveWords(regularVerbs)
+  }
   return (
     <>
       <div className="checkAllWords">
@@ -204,6 +207,16 @@ const NavWords = (props) => {
           </ul>
         </div>
 
+        <div className="nav-block">
+          <h2 className="nav-block__title">Глаголы</h2>
+          <ul className="nav-block__ul">
+            <li className="nav-block__li">
+              <a className="nav-block__link" onClick={handleVerbs}>Правильные глаголы</a>
+              <p>{regularVerbs.length}</p>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </>
   )
@@ -227,6 +240,7 @@ const mapStateToProps= (state)=>({
   thousandWords: state.MAIN.thousandWords,
   secondThousandWords: state.MAIN.secondThousandWords,
   prepositions: state.MAIN.prepositions,
+  regularVerbs: state.MAIN.regularVerbs,
 })
 
 

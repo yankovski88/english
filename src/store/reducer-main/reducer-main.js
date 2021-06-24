@@ -2,7 +2,7 @@ import {ActionType} from "../action-type";
 import {
   fruits, numbers, orders, seasons, months, days, times,
   timeIntervals, money, colors, properties, irregularVerbs, thousandWords,
-  secondThousandWords, prepositions
+  secondThousandWords, prepositions, regularVerbs
 } from "../../mock/mock";
 const initialState = {
   activeWords: [],
@@ -23,6 +23,7 @@ const initialState = {
   thousandWords: thousandWords,
   secondThousandWords: secondThousandWords,
   prepositions: prepositions,
+  regularVerbs: regularVerbs,
 }
 
 export const reducerMain = (state = initialState, action) => {

@@ -104,6 +104,12 @@ const Main = (props) => {
   }
 
   React.useEffect(() => {
+    if(Array.isArray(activeWords)){
+      console.log(numberWord)
+      console.log(activeWords[numberWord])
+      console.log('yes is array')
+      // setShowWord(activeWords[numberWord])
+    }
     setShowWord(activeWords[numberWord])
   }, [numberWord])
 
