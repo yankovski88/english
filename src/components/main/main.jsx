@@ -81,7 +81,7 @@ const Main = (props) => {
 
 
     if (showWord !== undefined) {
-      if (Object.keys(showWord)[0] === inputAnswer) {
+      if (Object.keys(showWord)[0].toLowerCase() === inputAnswer.toLowerCase()) {
         setTrueWords((prev) => [showWord, ...prev])
         // setErrorWords(delete Object.keys(showWord)[0])
         // delete Object.keys(showWord)[0]
@@ -104,12 +104,6 @@ const Main = (props) => {
   }
 
   React.useEffect(() => {
-    if(Array.isArray(activeWords)){
-      console.log(numberWord)
-      console.log(activeWords[numberWord])
-      console.log('yes is array')
-      // setShowWord(activeWords[numberWord])
-    }
     setShowWord(activeWords[numberWord])
   }, [numberWord])
 
@@ -261,10 +255,6 @@ const Main = (props) => {
   const [textPerfectVerbs, setTextPerfectVerbs] = React.useState();
 
 
-
-
-
-
   const perfectNouns = ['банк', 'банк Морган']
   const perfectVerbs = ['видел', 'ограбил', 'увижу', 'ограблю']
   // const perfectVerbs = ['имею увиденным', 'имею ограбленным', 'имел увиденным', 'имел ограбленным', 'буду иметь увиденным', 'буду иметь ограбленным']
@@ -272,9 +262,9 @@ const Main = (props) => {
   const toShort = ['к']
 
   const getTimePerfect = (arrMain, perfectVerbs, arr) => {
-    if (arrMain.includes(perfectVerbs[0])  || arrMain.includes(perfectVerbs[1])){
-      return  arr[getRandomInRange(0, 1)]
-    } else if(arrMain.includes(perfectVerbs[2]) || arrMain.includes(perfectVerbs[3])){
+    if (arrMain.includes(perfectVerbs[0]) || arrMain.includes(perfectVerbs[1])) {
+      return arr[getRandomInRange(0, 1)]
+    } else if (arrMain.includes(perfectVerbs[2]) || arrMain.includes(perfectVerbs[3])) {
 
       return arr[2]
     }
@@ -320,9 +310,6 @@ const Main = (props) => {
   }
 
 
-
-
-
 // I have been learning english for 5 years. Я изучаю английский 5 лет.(Я имею побытым изучающим английский 5 лет)
   const [textPerfectContinuous, setTextPerfectContinuous] = React.useState();
   const perfectContinuousNouns = ['объект 5 лет', 'объект JS 5 лет']
@@ -332,9 +319,9 @@ const Main = (props) => {
   // const toShort = ['к']
 
   const getTimePerfectContinuous = (arrMain, perfectContinuousVerbs, arr) => {
-    if (arrMain.includes(perfectContinuousVerbs[1])){
-      return  arr[0]
-    } else if(arrMain.includes(perfectContinuousVerbs[2])){
+    if (arrMain.includes(perfectContinuousVerbs[1])) {
+      return arr[0]
+    } else if (arrMain.includes(perfectContinuousVerbs[2])) {
 
       return arr[1]
     }
@@ -358,14 +345,9 @@ const Main = (props) => {
   }
 
 
-
   const handleNextTextPerfectContinuous = () => {
     setTextPerfectContinuous(getTextPerfectContinuous(pronouns, rights, perfectContinuousVerbs, perfectContinuousNouns, questions))
   }
-
-
-
-
 
 
   const [textBeThere, setTextBeThere] = React.useState('startBeThere');
@@ -392,7 +374,15 @@ const Main = (props) => {
     setTextBeThere(getTextBeThere(wordQuestions, therePronouns, beThereNouns, rights, beThere, questions))
   }
 
-
+  let wordValue = '';
+  if(showWord) {
+    let item = Object.values(showWord)
+    if(Array.isArray(item[0])){
+      wordValue = item[0][1]
+    } else {
+      wordValue = item
+    }
+  }
 
   return (
     <main className="main">
@@ -472,7 +462,8 @@ const Main = (props) => {
       <img src={'https://www.english-polyglot.com/img/pronouns-3-columns.gif'}></img>
       <img src={'https://puzzle-english.com/wp-content/uploads/tenses1.jpg'}></img>
       <img src={'https://cs8.pikabu.ru/post_img/big/2018/03/14/10/1521046812187426703.jpg'}></img>
-      <img src={'https://valente-shop.ru/wp-content/uploads/2018/06/Predlogi_vremeni_i_mesta_at__in__on_-_uchim_angliyskiy_sami_1.jpg'}></img>
+      <img
+        src={'https://valente-shop.ru/wp-content/uploads/2018/06/Predlogi_vremeni_i_mesta_at__in__on_-_uchim_angliyskiy_sami_1.jpg'}></img>
       <img src={'https://lingvoelf.ru/images/english_grammar/at_on_in.JPG'}></img>
       <img src={'https://mcenglish.ru/wp-content/uploads/2017/12/gj-e1512566051320.jpg'}></img>
       Пассивный залог
@@ -489,8 +480,7 @@ const Main = (props) => {
       {/*https://iloveenglish.ru/stories/view/vse-o-transkriptsii-v-anglijskom-yazike*/}
 
 
-
-<div><a href='https://www.bkc.ru/blog/about-language/grammar/predlogi-v-angliyskom-yazyke/'>Предлоги</a></div>
+      <div><a href='https://www.bkc.ru/blog/about-language/grammar/predlogi-v-angliyskom-yazyke/'>Предлоги</a></div>
 
       <div style={{display: "flex", flexDirection: "column", alignItems: 'center', marginBottom: '20px',}}>
         <div style={{fontSize: "20px"}}>{textPerfect}</div>
@@ -502,10 +492,16 @@ const Main = (props) => {
         <b style={{color: "red"}}>Future Perfect (Будущее совершенное время)</b>
         <br></br>
 
-        Future Perfect используется в тех ситуациях, когда нам нужно сообщить о действии, которое завершится до определенного момента в будущем: «I will have written the article by night — Я напишу статью к ночи». Будущее совершенное время мы также употребляем, когда говорим о каком-то предполагаем действии, которое имело место в прошлом. Иными словами, Future Perfect нужно для того, чтобы выразить предположение о том, что вероятно произошло. Например, «You will have noticed our attitude to this problem — Ты (наверняка) заметил наше отношение к этой проблеме».
+        Future Perfect используется в тех ситуациях, когда нам нужно сообщить о действии, которое завершится до
+        определенного момента в будущем: «I will have written the article by night — Я напишу статью к ночи». Будущее
+        совершенное время мы также употребляем, когда говорим о каком-то предполагаем действии, которое имело место в
+        прошлом. Иными словами, Future Perfect нужно для того, чтобы выразить предположение о том, что вероятно
+        произошло. Например, «You will have noticed our attitude to this problem — Ты (наверняка) заметил наше отношение
+        к этой проблеме».
         <br></br>
 
-        Фразами-маркерами для Future Perfect также служат обстоятельства времени, которые указывают момент для завершения действия:
+        Фразами-маркерами для Future Perfect также служат обстоятельства времени, которые указывают момент для
+        завершения действия:
 
         · by Sunday (к воскресенью);
         · by that time (к тому времени);
@@ -517,13 +513,19 @@ const Main = (props) => {
         <b style={{color: "red"}}>Present Perfect (Настоящее совершенное время)</b>
         <br></br>
 
-        Примеры Present Perfect в школьных учебниках далеко не всегда позволяют составить полную картину того, как же в действительности использовать это время. На самом деле оно очень широко распространено. Present Perfect обычно применяют в таких ситуациях:
+        Примеры Present Perfect в школьных учебниках далеко не всегда позволяют составить полную картину того, как же в
+        действительности использовать это время. На самом деле оно очень широко распространено. Present Perfect обычно
+        применяют в таких ситуациях:
         Узнать больше
         <br></br>
 
-        Для обозначения действия, которое уже абсолютно завершено в прошлом, но, тем не менее, оно еще связано с настоящим посредством результата (I have read this book so you can take it — Я уже прочитал эту книгу, так что ты ее можешь взять);
-        Для характеристики действия, которое началось в прошлом, но, при этом, оно продолжается и в настоящий момент (I have lived in London for 6 years — Мы живем в Лондоне 6 лет).
-        В предложениях с настоящим совершенным временем часто встречаются наречия и обстоятельства, подчеркивающие результативность действия:
+        Для обозначения действия, которое уже абсолютно завершено в прошлом, но, тем не менее, оно еще связано с
+        настоящим посредством результата (I have read this book so you can take it — Я уже прочитал эту книгу, так что
+        ты ее можешь взять);
+        Для характеристики действия, которое началось в прошлом, но, при этом, оно продолжается и в настоящий момент (I
+        have lived in London for 6 years — Мы живем в Лондоне 6 лет).
+        В предложениях с настоящим совершенным временем часто встречаются наречия и обстоятельства, подчеркивающие
+        результативность действия:
 
         · never (никогда);
         · just (только что);
@@ -538,9 +540,13 @@ const Main = (props) => {
 
       <p>
         <b style={{color: "red"}}>Past Perfect (Прошедшее совершенное время)</b><br></br>
-        Если действие завершилось до какого-то определенного момента или действия в прошлом, то, согласно правилам английской грамматики, придется выбрать время Past Perfect. Например, «The rain had stopped before he woke up — Дождь завершился до того, как он проснулся». Или: «By that time they had finished their work — К тому времени они закончили свою работу».
+        Если действие завершилось до какого-то определенного момента или действия в прошлом, то, согласно правилам
+        английской грамматики, придется выбрать время Past Perfect. Например, «The rain had stopped before he woke up —
+        Дождь завершился до того, как он проснулся». Или: «By that time they had finished their work — К тому времени
+        они закончили свою работу».
         <br></br>
-        Опознать Past Perfect часто можно по союзу by и обстоятельствам времени, вроде: by that time (к тому времени), by Monday (к понедельнику), by then (к тому времени) и т. п.
+        Опознать Past Perfect часто можно по союзу by и обстоятельствам времени, вроде: by that time (к тому времени),
+        by Monday (к понедельнику), by then (к тому времени) и т. п.
       </p>
       <br></br>
 
@@ -551,42 +557,54 @@ const Main = (props) => {
       {/*<div style={{backgroundImage: 'url("TablVerbsBe")', width: '660px', height: '476px'}}></div>*/}
 
 
-
       <div style={{display: "flex", flexDirection: "column", alignItems: 'center', marginBottom: '20px',}}>
         <div style={{fontSize: "20px"}}>{textPerfectContinuous}</div>
-        <button onClick={handleNextTextPerfectContinuous} style={{padding: "30px", background: "lightsalmon"}}>Next</button>
+        <button onClick={handleNextTextPerfectContinuous} style={{padding: "30px", background: "lightsalmon"}}>Next
+        </button>
       </div>
 
       <div>
         <p>
-        <b style={{color: "red"}}> Present Perfect Continuous (Настоящее совершенное продолженное)</b><br></br>
-        Present Perfect Continuous показывает действие, начавшееся в прошлом и продолжающееся на момента речи. Например: «She has been working for 5 hours already — Она уже работает 5 часов». Также это время используется для характеристики только что завершившегося длительного действия, результат которого влияет на настоящее: «I'm tired. We have been working all night — Я устал. Мы работали всю ночь».
+          <b style={{color: "red"}}> Present Perfect Continuous (Настоящее совершенное продолженное)</b><br></br>
+          Present Perfect Continuous показывает действие, начавшееся в прошлом и продолжающееся на момента речи.
+          Например: «She has been working for 5 hours already — Она уже работает 5 часов». Также это время используется
+          для характеристики только что завершившегося длительного действия, результат которого влияет на настоящее:
+          «I'm tired. We have been working all night — Я устал. Мы работали всю ночь».
 
-        Во фразах с настоящим совершенным продолженным временем в английском часто встречаются обстоятельства времени и прочие словосочетания, которые обозначают тот временной отрезок, в течение которого совершается действие. Например:
-        Узнать больше
+          Во фразах с настоящим совершенным продолженным временем в английском часто встречаются обстоятельства времени
+          и прочие словосочетания, которые обозначают тот временной отрезок, в течение которого совершается действие.
+          Например:
+          Узнать больше
 
-        · for a week (в течение недели);
-        · since morning (с утра);
-        · lately (в последнее время);
-        · all my life (всю мою жизнь) и т. п.
+          · for a week (в течение недели);
+          · since morning (с утра);
+          · lately (в последнее время);
+          · all my life (всю мою жизнь) и т. п.
         </p>
         <p>
           <b style={{color: "red"}}> Past Perfect Continuous (Прошедшее совершенное продолженное)</b><br></br>
-        Время Past Perfect Continuous похоже на предыдущее, однако описывает растянутое действие, которое началось в прошлом до определенного момента (который произошел также в прошлом и всегда употребляется в Past Simple). Этот процесс может продолжаться или же завершиться непосредственно прямо перед этим самым моментом.
+          Время Past Perfect Continuous похоже на предыдущее, однако описывает растянутое действие, которое началось в
+          прошлом до определенного момента (который произошел также в прошлом и всегда употребляется в Past Simple).
+          Этот процесс может продолжаться или же завершиться непосредственно прямо перед этим самым моментом.
 
-        «Tom had been reading for 2 hours when Jane came — Том читал уже на протяжении двух часов, когда пришла Джейн». В данном случае действие началось до того, как пришла Джейн. При этом, Том продолжает читать даже после того, как его прервали.
+          «Tom had been reading for 2 hours when Jane came — Том читал уже на протяжении двух часов, когда пришла
+          Джейн». В данном случае действие началось до того, как пришла Джейн. При этом, Том продолжает читать даже
+          после того, как его прервали.
 
-        Для прошедшего совершенного продолженного времени характерно использование временных фраз-маркеров, вроде:
+          Для прошедшего совершенного продолженного времени характерно использование временных фраз-маркеров, вроде:
 
-        · for five months (в течение 5 месяцев);
-        · for a long time (в течение долгого времени);
-        · since 7 o'clock (с 7-ми часов) и т. п.
+          · for five months (в течение 5 месяцев);
+          · for a long time (в течение долгого времени);
+          · since 7 o'clock (с 7-ми часов) и т. п.
         </p>
         <p>
-        <b style={{color: "red"}}> Future Perfect Continuous (Будущее совершенное продолженное)</b><br></br>
-        Среди всех времен английской грамматики Future Perfect Continuous встречается в речи реже всего. Это время описывает продолжительное действие, которое начнется в будущем и будет происходить до определенного момента (он употребляется в Future Simple):
+          <b style={{color: "red"}}> Future Perfect Continuous (Будущее совершенное продолженное)</b><br></br>
+          Среди всех времен английской грамматики Future Perfect Continuous встречается в речи реже всего. Это время
+          описывает продолжительное действие, которое начнется в будущем и будет происходить до определенного момента
+          (он употребляется в Future Simple):
 
-        He will have been resting for a week when she joins him — Он будет отдыхать уже целую неделю, когда она присоединится к нему.
+          He will have been resting for a week when she joins him — Он будет отдыхать уже целую неделю, когда она
+          присоединится к нему.
         </p>
       </div>
 
@@ -596,7 +614,7 @@ const Main = (props) => {
         <button onClick={handleNextTextBeThere} style={{padding: "30px", background: "lightseagreen"}}>Next</button>
       </div>
 
-<a href='https://poliglot16.ru/en/urok15/'>Таблица There</a>
+      <a href='https://poliglot16.ru/en/urok15/'>Таблица There</a>
 
 
 
@@ -636,7 +654,8 @@ const Main = (props) => {
 
           <div className="add-answer">
             <div className="add-answer__word">
-              {showWord ? Object.values(showWord) : ``}
+              {/*{showWord ? Object.values(showWord) : ``}*/}
+              {wordValue}
             </div>
             <div className="add-answer__input-wrap">
 

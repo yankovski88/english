@@ -1,9 +1,15 @@
 import {ActionType} from "../action-type";
 import {
   fruits, numbers, orders, seasons, months, days, times,
-  timeIntervals, money, colors, properties, irregularVerbs, thousandWords,
-  secondThousandWords, prepositions, regularVerbs
+  timeIntervals, money, colors, properties, thousandWords,
+  secondThousandWords, prepositions
 } from "../../mock/mock";
+
+import {
+  irregularVerbs,
+  regularVerbs
+} from "../../mock/mockVerbs";
+
 const initialState = {
   activeWords: [],
   allErrorWords: [],
