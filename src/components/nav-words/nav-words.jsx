@@ -217,6 +217,9 @@ const NavWords = (props) => {
           </ul>
         </div>
 
+
+        <a href={'https://iloveenglish.ru/theory/anglijskaya_grammatika/pravilnie_i_nepravilnie_glagoli_anglijskogo_yazika'}>Список неправильных глаголов</a>
+
       </div>
     </>
   )
