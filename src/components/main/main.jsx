@@ -374,10 +374,34 @@ const Main = (props) => {
     setTextBeThere(getTextBeThere(wordQuestions, therePronouns, beThereNouns, rights, beThere, questions))
   }
 
+  const [textPresentSimplePassive, setTextPresentSimplePassive] = React.useState('startPresentSimplePassive');
+  const passiveVerbs = ['любим', 'получающий', 'играющие в 5 часов', 'получающие в 5 часов',]
+  const times = ['', 'был', 'буду']
+  const toEmpty = ['', '', '', 'к, до', 'к, до'] // by next week // к концу дня - by the end of the day.
+
+
+  const getTextPSPassive = (wordQuestions, pronouns, rights, times, verbs, to, questions) => {
+    const arr = [];
+    // arr.push(wordQuestions[getRandomInRange(0, wordQuestions.length -1)])
+    arr.push(pronouns[getRandomInRange(0, pronouns.length - 1)])
+    arr.push(rights[getRandomInRange(0, rights.length - 1)])
+    arr.push(times[getRandomInRange(0, times.length - 1)])
+    arr.push(verbs[getRandomInRange(0, verbs.length - 1)])
+    arr.push(to[getRandomInRange(0, to.length - 1)])
+    arr.push(questions[getRandomInRange(0, questions.length - 1)])
+
+    return arr.join(' ');
+  }
+
+  // Я есть любим I am loved
+  const handleNextPresentSimplePassive = () => {
+    setTextPresentSimplePassive(getTextPSPassive(wordQuestions, pronouns, rights, times, passiveVerbs, toEmpty, questions))
+  }
+
   let wordValue = '';
-  if(showWord) {
+  if (showWord) {
     let item = Object.values(showWord)
-    if(Array.isArray(item[0])){
+    if (Array.isArray(item[0])) {
       wordValue = item[0][1]
     } else {
       wordValue = item
@@ -466,10 +490,7 @@ const Main = (props) => {
         src={'https://valente-shop.ru/wp-content/uploads/2018/06/Predlogi_vremeni_i_mesta_at__in__on_-_uchim_angliyskiy_sami_1.jpg'}></img>
       <img src={'https://lingvoelf.ru/images/english_grammar/at_on_in.JPG'}></img>
       <img src={'https://mcenglish.ru/wp-content/uploads/2017/12/gj-e1512566051320.jpg'}></img>
-      Пассивный залог
-      {/*https://pikabu.ru/story/tablitsa_vremen_passivnyiy_zalog_dlya_nachinayushchikh_4725956*/}
-      <img src={'https://cs9.pikabu.ru/post_img/2017/01/01/6/1483259668167141583.png'}></img>
-      <img src={'https://cs9.pikabu.ru/post_img/2017/01/01/6/1483260145121156049.png'}></img>
+
 
       <img src={'https://puzzle-english.com/wp-content/uploads/001.png'}></img>
       <img src={'https://puzzle-english.com/wp-content/uploads/002.png'}></img>
@@ -613,21 +634,148 @@ const Main = (props) => {
         <div style={{fontSize: "20px"}}>{textBeThere}</div>
         <button onClick={handleNextTextBeThere} style={{padding: "30px", background: "lightseagreen"}}>Next</button>
       </div>
-
       <a href='https://poliglot16.ru/en/urok15/'>Таблица There</a>
+      <a href='https://langformula.ru/english-grammar/there-is-there-are/'>Таблица There Perfect</a>
 
+      <h2>Passive</h2>
+      <br></br>
+      <div style={{display: "flex", flexDirection: "column", alignItems: 'center'}}>
+        <div style={{fontSize: "20px"}}>{textPresentSimplePassive}</div>
+        {/*<button onClick={handleNextTextBeThere} style={{padding: "30px", background: ""}}>Next</button>*/}
+        <button type="button" className="btn btn-info" onClick={handleNextPresentSimplePassive}>Next</button>
+      </div>
 
+      Пассивный залог
+      {/*https://pikabu.ru/story/tablitsa_vremen_passivnyiy_zalog_dlya_nachinayushchikh_4725956*/}
+      <img src={'https://cs9.pikabu.ru/post_img/2017/01/01/6/1483259668167141583.png'}></img>
+      <img src={'https://cs9.pikabu.ru/post_img/2017/01/01/6/1483260145121156049.png'}></img>
+      <StylePassive>
+        <p>Future Continuous, такого нет времени, нужно говорить так как ниже без ing.</p>
+        <p>Письмо будет отправляться. Letter will be sent.</p>
+        <p>Это будет обсуждаться. It will be discussed.</p>
+        <p>Если нужно Future Perfect Continuous, то используешь Future Perfect</p>
+        <p>* Когда мы хотим сказать, кем или чем совершено действие, необходимо использовать предлоги by и with.
+          Предлог by - для одушевленных и with - для неодушевленных предметов.</p>
+      </StylePassive>
 
+      <S.Container>
+        <S.Title>Примеры условных предложений с If/When</S.Title>
+        <img  src={'https://cf2.ppt-online.org/files2/slide/v/vrSGDaY6148jkt0Qh3V9eEc5uwg7ObpLKlPsBFUfiJ/slide-16.jpg'}></img>
+        <p>
+          If/When + Present Simple(Условная часть предложения) Future Simple(Основная часть предложения)
+        </p>
+        <p>
+          If you read in bed, you will ruin your eyes.
+          Если ты будешь читать в постели, ты испортишь глаза.
+        </p>
+        <p>
+          When the weather is good, we will go to the pool.
+          Когда погода будет хорошей, мы пойдём в бассейн.
+        </p>
+        <p>
+          Важно запомнить: Мы не зря подчеркнули слова будет и будешь! Так как, после if / when в условных предложениях
+          английского языка, будущее время не употребляется и поэтому вспомогательный глагол will мы не ставим!.
+        </p>
+        <br></br>
+        <p>Порядок следования основной и условной части может быть разным:</p>
+        <p>
+          If I have free time, I’ll visit you.
+          Если у меня будет время, я навещу тебя.
+        </p>
+        <p>
+          ’ll visit you if I have free time.
+          Я навещу тебя, если у меня будет время.
+        </p>
+        <img  src={'https://lh5.googleusercontent.com/Ou6v1GXFTOhFkZ_hX7HaZXphRNo2nuazTTfgrHSvKgiNoepxGj6hgy_SyU2AGuPQO_xkonqQSv1Qwo7_g_IMn2_fQNCXPaFEIIPvm80wgZGPLWBZJlfiN3Q9xCvOvWLzyuqiCFl1'}></img>
+        <img  src={'https://www.learnathome.ru/files/blog/_grammar/post_295/uploaded.jpg'}></img>
+        <img  src={'https://mcenglish.ru/wp-content/uploads/2017/07/Screenshot_.png'}></img>
+        <img  src={'https://nsportal.ru/sites/default/files/2019/05/04/hello_html_5e61f3e9.jpg'}></img>
+        <img  src={'https://englishfull.ru/wp-content/uploads/2014/02/%D1%81%D0%B2%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F_%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0.jpg'}></img>
 
+      </S.Container>
+      <S.Container>
+        <S.Title>
+          ВОПРОС К ПОДЛЕЖАЩЕМУ В АНГЛИЙСКОМ ЯЗЫКЕ
+        </S.Title>
+        <p>Чтобы задать вопрос к подлежащему, нужно всего лишь убрать подлежащее из предложения и заменить его
+          вопросительным словом Who или What.</p>
+        <p>
+          Who/What + сказуемое + остальная часть предложения?</p>
 
+        <p>Who (Кто) - если подлежащее представляет собой одушевленное лицо.</p>
 
+        <p>What (Что) - если подлежащее - это предмет или неодушевленное лицо.</p>
 
+        <p>Стоит запомнить, слова Who или What не просто ставятся в начало предложения, но и требуют после себя глагол
+          в форме 3го лица единственного числа.</p>
 
+        <div>
+          <p>Present Simple в настоящем времени</p>
 
+          <p>Схема построения вопроса к подлежащему в настоящем времени:</p>
 
+          <p>Утверждение Вопрос</p>
+          <p>Не opens the door
+            Он открывает дверь</p>
+          <p>Who opens the door?
+            Кто открывает дверь?</p>
+          <p>It works well
+            Это работает хорошо</p>
+          <p>What works well?
+            Что работает хорошо?</p>
 
+          <p>Past Simple простое прошедшее</p>
 
+          <p>Схема построения вопроса к подлежащему в прошедшем времени:</p>
 
+          <p>Утверждение Вопрос</p>
+          <p>He opened the door
+            Он открыл дверь</p>
+          <p>Who opened the door?
+            Кто открыл дверь?</p>
+          <p>It worked yesterday
+            Это работало вчера</p>
+          <p>What worked yesterday?
+            Что работало вчера?</p>
+
+          <p>Future Simple простое будущее</p>
+
+          <p>Схема построения вопроса к подлежащему в будущем времени:</p>
+
+          <p>Утверждение Вопрос</p>
+          <p>He will open the door
+            Он откроет дверь</p>
+          <p>Who will open the door?
+            Кто откроет дверь?</p>
+          <p>It will work tomorrow
+            Это будет работать завтра</p>
+          <p>What will work tomorrow?
+            Что будет работать завтра?</p>
+        </div>
+        <div>
+          <p>ОШИБКИ В ВОПРОСАХ К ПОДЛЕЖАЩЕМУ</p>
+          <p>
+            Новички, как правило, ставят вспомогательный глагол (DO, DOES, DID) там, где его употреблять не стоит, так
+            как смысл английского предложения будет совершенно другим.
+          </p>
+          <p>
+            Если после Who или What используем вспомогательный глагол, меняется смысл вопросительного слова и самого
+            вопроса.
+            Кто превращается в Кого, а Что будет переводиться как Чему.
+          </p>
+          <p>
+            Who saw you? - Кто тебя видел?Who did you see? - Кого ты видел?</p>
+          <p>What helps you? - Что тебе помогает? What do you help? - Чему вы помогаете?</p>
+
+        </div>
+
+      </S.Container>
+      <S.Container>
+        <S.Title>Модальные глаголы</S.Title>
+        <img src={'https://4lang.ru/wp-content/uploads/2016/03/modal-verbs.jpg'}></img>
+        <img src={'https://studyingenglish.ru/wp-content/uploads/2020/08/modalnye-glagoly-tablica.jpg'}></img>
+      </S.Container>
+      <a href={'https://poliglot16.ru/en/urok9/'}>ВОЗВРАТНЫЕ МЕСТОИМЕНИЯ </a>
 
       <div className="block-answer">
         <div className="block-answer__wrapper">
@@ -691,19 +839,30 @@ const Main = (props) => {
   )
 };
 
-const mapStateToProps = (state) => ({
-  activeWords: state.MAIN.activeWords,
-  badAnswers: state.MAIN.badAnswers,
-})
+const mapStateToProps = (state) => (
+    {
+      activeWords: state.MAIN.activeWords,
+      badAnswers: state.MAIN.badAnswers,
+  }
+)
 
-const mapDispatchToProps = (dispatch) => ({
-  onSetActiveWords(activeWords) {
-    dispatch(setActiveWords(activeWords)); // genre это payload дополнитеьная инфа
-  },
-  onSetBadAnswers(badAnswers) {
-    dispatch(setBadAnswers(badAnswers)); // genre это payload дополнитеьная инфа
-  },
-});
+const mapDispatchToProps = (dispatch) => (
+  {
+    onSetActiveWords(activeWords) {
+      dispatch(setActiveWords(activeWords)); // genre это payload дополнитеьная инфа
+    }
+    ,
+    onSetBadAnswers(badAnswers) {
+      dispatch(setBadAnswers(badAnswers)); // genre это payload дополнитеьная инфа
+    }
+    ,
+  }
+);
 
+
+const StylePassive = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
