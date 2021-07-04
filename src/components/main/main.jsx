@@ -498,6 +498,9 @@ const Main = (props) => {
       <a href='https://www.study.ru/article/fonetika-angliyskogo/transkripciya-i-pravila-chteniya#rem'>Транскрипция</a>
       <a href='https://enginform.com/article/transcription'>Транскрипция детальная</a>
       <a href='https://myefe.ru/anglijskaya-transkriptsiya.html'>Сервис для транскрипции</a>
+      <a href='https://iloveenglish.ru/stories/view/vse-o-transkriptsii-v-anglijskom-yazike'>Вроде лучший ресурс по транскрипции</a>
+
+
       {/*https://iloveenglish.ru/stories/view/vse-o-transkriptsii-v-anglijskom-yazike*/}
 
 
