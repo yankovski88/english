@@ -375,7 +375,7 @@ const Main = (props) => {
   }
 
   const [textPresentSimplePassive, setTextPresentSimplePassive] = React.useState('startPresentSimplePassive');
-  const passiveVerbs = ['любим', 'получающий', 'играющие в 5 часов', 'получающие в 5 часов',]
+  const passiveVerbs = ['любим', 'любим в 5 часов']// ['любим', 'получающий', 'играющие в 5 часов', 'получающие в 5 часов',]
   const times = ['', 'был', 'буду']
   const toEmpty = ['', '', '', 'к, до', 'к, до'] // by next week // к концу дня - by the end of the day.
 
