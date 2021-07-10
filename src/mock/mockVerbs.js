@@ -1,3 +1,5 @@
+import {shuffle} from "../utils/utils";
+
 export const regularVerbs = [
   {"advance": ['[ədˈvɑːns]',
     "продвигать, продвигаться, наступать, наступление, продвижение, авансовый, предварительный "] },
@@ -841,10 +843,10 @@ export const regularVerbs = [
 
 export const irregularVerbs = [
   {"abide abode abode": "пребывать, придерживаться чего-либо"},
-  {"arise arose arisen": "возникать, подниматься,, происходить"},
+  {"arise arose arisen": "возникать,, появляться"},
   {"awake awoke awoken": "будить, просыпаться"},
   {"be was;were been": "быть, являться, находиться"},
-  {"bear bore born": "нести, перевозить, выдерживать, медведь"},
+  {"bear bore born": "нести, перевозить, выдерживать, рождать, медведь"},
   {"beat beat beaten": "бить, ударять, колотить, опережать, ритм, такт"},
   {"become became become": "стать, становиться, делаться"},
   {"befall befell befallen": "случаться"},
@@ -917,7 +919,7 @@ export const irregularVerbs = [
   {"grow grew grown": "расти, выращивать"},
   {"hang hung hung": "висеть, вешать, вырастать, отрастать"},
   {"have had had": "иметь, обладать"},
-  {"hew hewed hewn": "рубить, тесать"},
+  {"hew hewed hewed": "рубить, тесать"},
   {"hear heard heard": "слышать, услышать"},
   {"hide hid hidden": "прятать, прятаться, скрывать, скрываться"},
   {"hit hit hit": "ударять, поражать, бить, удариться"},
@@ -927,7 +929,7 @@ export const irregularVerbs = [
   {"kneel knelt knelt": "становиться на колени"},
   {"knit knit knit": "вязать, объединяться, связывать, соединять(ся), срастаться"},
   {"know knew known": "знать, узнавать"},
-  {"lay laid laid": "лежать, положить, класть, накрывать"},
+  {"lay laid laid": "класть, накрывать"},
   {"lead led led": "вести, сопровождать, приводить, руководить, возглавлять"},
   {"lean leant leant": "опираться, прислоняться"},
   {"leap leapt leapt": "скакать, прыгать, подскакивать, резко подскочить"},
@@ -935,7 +937,7 @@ export const irregularVerbs = [
   {"leave left left": "оставлять, покидать, уходить, уезжать"},
   {"lend lent lent": "предоставлять, одалживать, давать взаймы"},
   {"let let let": "позволять, разрешать, сдавать в наём"},
-  {"lie la lain": "лежать"},
+  {"lie lay lain": "лежать"},
   {"light lit lit": "зажигать, освещать"},
   {"lose lost lost": "терять, проигрывать"},
   {"make made made": "делать, заставлять, производить, изготавливать"},
