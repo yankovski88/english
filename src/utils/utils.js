@@ -2,7 +2,7 @@ import {ALL_GENRES, EMAIL_REGEX, NUMBER_FILM} from "../constants/constants";
 import {regularVerbs} from "../mock/mockRegular";
 
 
-export const getTimeMovie = (timeMovie)=>{
+export const getTimeMovie = (timeMovie) => {
   const MINUTES_IN_HOUR = 60;
   if (timeMovie / MINUTES_IN_HOUR > 1) {
     const timeHour = Math.floor(timeMovie / MINUTES_IN_HOUR);
@@ -15,7 +15,7 @@ export const getTimeMovie = (timeMovie)=>{
 };
 
 
-export const getGenreFilms = (typeGenre, itemFilms)=>{
+export const getGenreFilms = (typeGenre, itemFilms) => {
   const films = itemFilms.slice();
   if (typeGenre === ALL_GENRES) {
     return films;
@@ -31,7 +31,7 @@ export const getGenreFilms = (typeGenre, itemFilms)=>{
 };
 
 // функция которая возвращает массив фильмов для рендера на основании числа фильмов сколько надо
-export const getActiveFilms = (films, countShowFilm)=>{
+export const getActiveFilms = (films, countShowFilm) => {
   let activeFilms;
   if (films.length > NUMBER_FILM) {
     activeFilms = films.slice(0, countShowFilm);
@@ -43,7 +43,7 @@ export const getActiveFilms = (films, countShowFilm)=>{
 
 
 // функция которая получает массив фильмов, а выводит все уникальный жанры для меню
-export const getUniqueGenres = (films)=>{
+export const getUniqueGenres = (films) => {
   const genres = [ALL_GENRES];
   for (const item of films) {
     genres.push(item.genre);
@@ -81,7 +81,7 @@ export const formatTime = (seconds) => {
 export const isValidEmail = (email) => EMAIL_REGEX.test(email);
 
 
-export const getRandomInRange = (min, max)=> {
+export const getRandomInRange = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -108,5 +108,14 @@ export function shuffle(array) {
 // Used like so
 let arr = [2, 11, 37, 42];
 arr = shuffle(regularVerbs);
-console.log(arr);
 
+
+
+// function get from object a value then from the value get second value.
+export const getValue = (arr) => {
+  const items = [];
+  for (let item of arr){
+    items.push(Object.values(item))
+  }
+  return items
+}

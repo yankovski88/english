@@ -9,6 +9,7 @@ import BlockAllErrorWords from "../block-all-error-words/block-all-error-words";
 import * as S from '../main/main.style'
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
+import {getValue} from "../../utils/utils";
 
 // import getRandomInRange from "../../mock/mock";
 // import {ITodo} from "../../interfaces/interfaces"
@@ -22,7 +23,7 @@ import {Link} from "react-router-dom";
 const Main = (props) => {
   // const bg=require('../../../public/img/tablica-glagola-to-be-ing-image.gif')
 
-  const {activeWords, onSetActiveWords, onSetBadAnswers, badAnswers} = props;
+  const {activeWords, onSetActiveWords, onSetBadAnswers, badAnswers, irregularVerbs} = props;
   const [todos, setTodos] = React.useState([]) // ITodo[] указали, что ITodo массив
 
   // забираем элементы
@@ -58,6 +59,7 @@ const Main = (props) => {
   const [isList, setIsList] = React.useState(false);
   const [isListError, setIsListError] = React.useState(false);
   const [isAllErrorList, setIsAllErrorList] = React.useState(false);
+
 
 
 // словосочетание которое сейчас показывается
@@ -204,6 +206,7 @@ const Main = (props) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+  const [active, setActive] = React.useState();
   const [text, setText] = React.useState('start');
 
   const pronouns = ['Я', 'ты', 'он', 'она', 'это', 'мы', 'они']
@@ -398,6 +401,89 @@ const Main = (props) => {
     setTextPresentSimplePassive(getTextPSPassive(wordQuestions, pronouns, rights, times, passiveVerbs, toEmpty, questions))
   }
 
+
+  const [textActive, setTextActive] = React.useState(null);
+  const allVerbs = irregularVerbs.slice();
+  const getTextActive = (wordQuestions, pronouns, rights, times, verbs, to, questions) => {
+    const arr = [];
+    // arr.push(wordQuestions[getRandomInRange(0, wordQuestions.length -1)])
+    arr.push(pronouns[getRandomInRange(0, pronouns.length - 1)])
+    arr.push(rights[getRandomInRange(0, rights.length - 1)])
+    arr.push(times[getRandomInRange(0, times.length - 1)])
+    arr.push(verbs[getRandomInRange(0, verbs.length - 1)])
+    arr.push(to[getRandomInRange(0, to.length - 1)])
+    arr.push(questions[getRandomInRange(0, questions.length - 1)])
+
+    return arr.join(' ');
+  }
+
+  // все активные времена
+  const handleNextActive = () => {
+    setTextActive(getTextActive(wordQuestions, pronouns, rights, times, getValue(allVerbs), toEmpty, questions))
+  }
+
+  // const [textActiveEasy, setTextActiveEasy] = React.useState(null);
+  // const easyVerbs = ['говорить', 'играть', 'говорить сейчас', 'играть сейчас', 'играть 5 лет', 'получать 5 лет'];
+  // // const perfectContinuousVerbs = ['изучаю', 'изучал', 'буду изучать',]
+  // // const perfectContinuousNouns = ['объект 5 лет', 'объект JS 5 лет']
+  // // const perfectVerbs = ['видел', 'ограбил', 'увижу', 'ограблю']
+  // // const verbs = ['иду(ет, ем, дут)', 'ходил(ла, ли)', 'пойду(ет, ем, ут)']
+  // // const perfectVerbs = ['видел', 'ограбил', 'увижу', 'ограблю']
+  //
+  // const getTextActiveEasy = (wordQuestions, pronouns, rights, times, verbs, to, questions) => {
+  //   const arr = [];
+  //   // arr.push(wordQuestions[getRandomInRange(0, wordQuestions.length -1)])
+  //   arr.push(pronouns[getRandomInRange(0, pronouns.length - 1)])
+  //   arr.push(rights[getRandomInRange(0, rights.length - 1)])
+  //   arr.push(times[getRandomInRange(0, times.length - 1)])
+  //   arr.push(verbs[getRandomInRange(0, verbs.length - 1)])
+  //   arr.push(to[getRandomInRange(0, to.length - 1)])
+  //   arr.push(questions[getRandomInRange(0, questions.length - 1)])
+  //
+  //   return arr.join(' ');
+  // }
+  //
+  // // все активные времена
+  // const handleNextActiveEasy = () => {
+  //   setTextActiveEasy(getTextActiveEasy(wordQuestions, pronouns, rights, times, easyVerbs, toEmpty, questions))
+  // }
+
+
+  // все времена
+  const handleNextActiveAll = ()=>{
+    const random = getRandomInRange(0, 5)
+
+    switch(random) {
+      case 0:  // if (x === 'value1')
+        setActive(getText(pronouns, verbs, rights, questions))
+        break
+      case 1:  // if (x === 'value2')
+        setActive(getTextBe(wordQuestions, pronouns, beNouns, rights, be, questions))
+        break
+      case 2:  // if (x === 'value2')
+        setActive(getTextPerfect(pronouns, perfectVerbs, rights, perfectNouns, textPerfectTime, questions))
+          break
+      case 3:  // if (x === 'value2')
+        setActive(getTextPerfectContinuous(pronouns, rights, perfectContinuousVerbs, perfectContinuousNouns, questions))
+          break
+      case 4:  // if (x === 'value2')
+        setActive(getTextBeThere(wordQuestions, therePronouns, beThereNouns, rights, beThere, questions))
+          break
+      case 5:  // if (x === 'value2')
+        setActive(getTextPSPassive(wordQuestions, pronouns, rights, times, passiveVerbs, toEmpty, questions))
+          break
+
+      default:
+        break
+    }
+
+
+
+
+
+
+  };
+
   let wordValue = '';
   if (showWord) {
     let item = Object.values(showWord)
@@ -498,7 +584,8 @@ const Main = (props) => {
       <a href='https://www.study.ru/article/fonetika-angliyskogo/transkripciya-i-pravila-chteniya#rem'>Транскрипция</a>
       <a href='https://enginform.com/article/transcription'>Транскрипция детальная</a>
       <a href='https://myefe.ru/anglijskaya-transkriptsiya.html'>Сервис для транскрипции</a>
-      <a href='https://iloveenglish.ru/stories/view/vse-o-transkriptsii-v-anglijskom-yazike'>Вроде лучший ресурс по транскрипции</a>
+      <a href='https://iloveenglish.ru/stories/view/vse-o-transkriptsii-v-anglijskom-yazike'>Вроде лучший ресурс по
+        транскрипции</a>
 
 
       {/*https://iloveenglish.ru/stories/view/vse-o-transkriptsii-v-anglijskom-yazike*/}
@@ -632,20 +719,44 @@ const Main = (props) => {
         </p>
       </div>
 
+      <h2>Active</h2>
+      <br></br>
+      <div style={{display: "flex", flexDirection: "column", alignItems: 'center'}}>
+        <div style={{fontSize: "20px"}}>{textActive}</div>
+        {/*<button onClick={handleNextTextBeThere} style={{padding: "30px", background: ""}}>Next</button>*/}
+        <button type="button" className="btn btn-info" onClick={handleNextActive}>NextActive</button>
+      </div>
+      {/*<br></br>*/}
+      {/*<div style={{display: "flex", flexDirection: "column", alignItems: 'center'}}>*/}
+      {/*  <div style={{fontSize: "20px"}}>{textActiveEasy}</div>*/}
+      {/*  /!*<button onClick={handleNextTextBeThere} style={{padding: "30px", background: ""}}>Next</button>*!/*/}
+      {/*  <button type="button" className="btn btn-info" onClick={handleNextActiveEasy}>NextActiveEasy</button>*/}
+      {/*</div>*/}
 
+      <br></br>
+      <h2>There</h2>
+      <a href='https://poliglot16.ru/en/urok15/'>Таблица There</a>
       <div style={{display: "flex", flexDirection: "column", alignItems: 'center'}}>
         <div style={{fontSize: "20px"}}>{textBeThere}</div>
-        <button onClick={handleNextTextBeThere} style={{padding: "30px", background: "lightseagreen"}}>Next</button>
+        <button onClick={handleNextTextBeThere} style={{padding: "30px", background: "lightseagreen"}}>NextThere
+        </button>
       </div>
-      <a href='https://poliglot16.ru/en/urok15/'>Таблица There</a>
-      <a href='https://langformula.ru/english-grammar/there-is-there-are/'>Таблица There Perfect</a>
 
       <h2>Passive</h2>
+      <a href='https://langformula.ru/english-grammar/there-is-there-are/'>Таблица There Perfect</a>
       <br></br>
       <div style={{display: "flex", flexDirection: "column", alignItems: 'center'}}>
         <div style={{fontSize: "20px"}}>{textPresentSimplePassive}</div>
         {/*<button onClick={handleNextTextBeThere} style={{padding: "30px", background: ""}}>Next</button>*/}
-        <button type="button" className="btn btn-info" onClick={handleNextPresentSimplePassive}>Next</button>
+        <button type="button" className="btn btn-info" onClick={handleNextPresentSimplePassive}>NextPassive</button>
+      </div>
+
+      <div>все времена</div>
+      <br></br>
+      <div style={{display: "flex", flexDirection: "column", alignItems: 'center'}}>
+        <div style={{fontSize: "20px"}}>{active}</div>
+        {/*<button onClick={handleNextTextBeThere} style={{padding: "30px", background: ""}}>Next</button>*/}
+        <button type="button" className="btn btn-info" onClick={handleNextActiveAll}>NextActiveAll</button>
       </div>
 
       Пассивный залог
@@ -663,7 +774,8 @@ const Main = (props) => {
 
       <S.Container>
         <S.Title>Примеры условных предложений с If/When</S.Title>
-        <img  src={'https://cf2.ppt-online.org/files2/slide/v/vrSGDaY6148jkt0Qh3V9eEc5uwg7ObpLKlPsBFUfiJ/slide-16.jpg'}></img>
+        <img
+          src={'https://cf2.ppt-online.org/files2/slide/v/vrSGDaY6148jkt0Qh3V9eEc5uwg7ObpLKlPsBFUfiJ/slide-16.jpg'}></img>
         <p>
           If/When + Present Simple(Условная часть предложения) Future Simple(Основная часть предложения)
         </p>
@@ -689,11 +801,13 @@ const Main = (props) => {
           ’ll visit you if I have free time.
           Я навещу тебя, если у меня будет время.
         </p>
-        <img  src={'https://lh5.googleusercontent.com/Ou6v1GXFTOhFkZ_hX7HaZXphRNo2nuazTTfgrHSvKgiNoepxGj6hgy_SyU2AGuPQO_xkonqQSv1Qwo7_g_IMn2_fQNCXPaFEIIPvm80wgZGPLWBZJlfiN3Q9xCvOvWLzyuqiCFl1'}></img>
-        <img  src={'https://www.learnathome.ru/files/blog/_grammar/post_295/uploaded.jpg'}></img>
-        <img  src={'https://mcenglish.ru/wp-content/uploads/2017/07/Screenshot_.png'}></img>
-        <img  src={'https://nsportal.ru/sites/default/files/2019/05/04/hello_html_5e61f3e9.jpg'}></img>
-        <img  src={'https://englishfull.ru/wp-content/uploads/2014/02/%D1%81%D0%B2%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F_%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0.jpg'}></img>
+        <img
+          src={'https://lh5.googleusercontent.com/Ou6v1GXFTOhFkZ_hX7HaZXphRNo2nuazTTfgrHSvKgiNoepxGj6hgy_SyU2AGuPQO_xkonqQSv1Qwo7_g_IMn2_fQNCXPaFEIIPvm80wgZGPLWBZJlfiN3Q9xCvOvWLzyuqiCFl1'}></img>
+        <img src={'https://www.learnathome.ru/files/blog/_grammar/post_295/uploaded.jpg'}></img>
+        <img src={'https://mcenglish.ru/wp-content/uploads/2017/07/Screenshot_.png'}></img>
+        <img src={'https://nsportal.ru/sites/default/files/2019/05/04/hello_html_5e61f3e9.jpg'}></img>
+        <img
+          src={'https://englishfull.ru/wp-content/uploads/2014/02/%D1%81%D0%B2%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F_%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0.jpg'}></img>
 
       </S.Container>
       <S.Container>
@@ -780,6 +894,8 @@ const Main = (props) => {
       </S.Container>
       <a href={'https://poliglot16.ru/en/urok9/'}>ВОЗВРАТНЫЕ МЕСТОИМЕНИЯ </a>
 
+
+
       <div className="block-answer">
         <div className="block-answer__wrapper">
 
@@ -843,9 +959,10 @@ const Main = (props) => {
 };
 
 const mapStateToProps = (state) => (
-    {
-      activeWords: state.MAIN.activeWords,
-      badAnswers: state.MAIN.badAnswers,
+  {
+    activeWords: state.MAIN.activeWords,
+    badAnswers: state.MAIN.badAnswers,
+    irregularVerbs: state.MAIN.irregularVerbs,
   }
 )
 
