@@ -210,7 +210,9 @@ const Main = (props) => {
   const [text, setText] = React.useState('start');
 
   const pronouns = ['Я', 'ты', 'он', 'она', 'это', 'мы', 'они']
-  const verbs = ['иду(ет, ем, дут)', 'ходил(ла, ли)', 'пойду(ет, ем, ут)']
+  const verbs = ['иду', 'ходил', 'пойду']
+
+  // const verbs = ['иду(ет, ем, дут)', 'ходил(ла, ли)', 'пойду(ет, ем, ут)']
   const rights = ['', '', '', 'не']
   const questions = ['', '', '', '?']
   const getText = (pronouns, verbs, rights, questions) => {
@@ -496,6 +498,7 @@ const Main = (props) => {
 
   return (
     <main className="main">
+      <a href="https://may.alleng.org/mybook/6top2500/TOP_1-2500.htm">2500 words</a>
       <NavWords/>
       {/*<S.StyleCom src={"https://docs.google.com/spreadsheets/d/1o1wdZkwCA9Q8uXo_dTRG32qlcJ2F6G1X6hLkkAPGDUo/edit?usp=sharing"}>Link</S.StyleCom>*/}
       <a

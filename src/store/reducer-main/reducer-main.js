@@ -7,8 +7,12 @@ import {
 
 import {
   irregularVerbs,
-  regularVerbs
+  // regularVerbs
 } from "../../mock/mockVerbs";
+
+import {
+  regularVerbs
+} from "../../mock/mockRegular";
 
 const initialState = {
   activeWords: [],
