@@ -518,7 +518,8 @@ const Main = (props) => {
       <a href="https://may.alleng.org/mybook/6top2500/TOP_1-2500.htm">2500 words</a>
 
       <div className="">
-        <div className="show-word">{wordIntervalActive}</div>
+        <p>error</p>
+        {/*<div className="show-word">{wordIntervalActive}</div>*/}
         <button className="btn-russia"></button>
         <button className="btn-english"></button>
       </div>
