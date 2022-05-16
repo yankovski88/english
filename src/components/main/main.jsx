@@ -10,6 +10,7 @@ import * as S from '../main/main.style'
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import {getValue} from "../../utils/utils";
+import {random} from "nanoid";
 
 // import getRandomInRange from "../../mock/mock";
 // import {ITodo} from "../../interfaces/interfaces"
@@ -59,7 +60,6 @@ const Main = (props) => {
   const [isList, setIsList] = React.useState(false);
   const [isListError, setIsListError] = React.useState(false);
   const [isAllErrorList, setIsAllErrorList] = React.useState(false);
-
 
 
 // словосочетание которое сейчас показывается
@@ -452,10 +452,10 @@ const Main = (props) => {
 
 
   // все времена
-  const handleNextActiveAll = ()=>{
+  const handleNextActiveAll = () => {
     const random = getRandomInRange(0, 5)
 
-    switch(random) {
+    switch (random) {
       case 0:  // if (x === 'value1')
         setActive(getText(pronouns, verbs, rights, questions))
         break
@@ -464,24 +464,20 @@ const Main = (props) => {
         break
       case 2:  // if (x === 'value2')
         setActive(getTextPerfect(pronouns, perfectVerbs, rights, perfectNouns, textPerfectTime, questions))
-          break
+        break
       case 3:  // if (x === 'value2')
         setActive(getTextPerfectContinuous(pronouns, rights, perfectContinuousVerbs, perfectContinuousNouns, questions))
-          break
+        break
       case 4:  // if (x === 'value2')
         setActive(getTextBeThere(wordQuestions, therePronouns, beThereNouns, rights, beThere, questions))
-          break
+        break
       case 5:  // if (x === 'value2')
         setActive(getTextPSPassive(wordQuestions, pronouns, rights, times, passiveVerbs, toEmpty, questions))
-          break
+        break
 
       default:
         break
     }
-
-
-
-
 
 
   };
@@ -496,9 +492,38 @@ const Main = (props) => {
     }
   }
 
+  // const [wordIntervalActive, setWordIntervalActive] = React.useState("word");
+  // const b = getRandomInRange(0, 50)
+  // // setInterval(()=>setWordIntervalActive(b), 5000)
+  // function printNumbers(from, to) {
+  //   let current = from;
+  //
+  //   let timerId = setInterval(function() {
+  //     setTimeout(()=> setWordIntervalActive(current), 1000);
+  //     // console.log(current);
+  //
+  //     if (current == to) {
+  //       clearInterval(timerId);
+  //     }
+  //     current++;
+  //   }, 1000);
+  // }
+//
+// // использование:
+//   printNumbers(5, 10);
+
+
   return (
     <main className="main">
       <a href="https://may.alleng.org/mybook/6top2500/TOP_1-2500.htm">2500 words</a>
+
+      <div className="">
+        <div className="show-word">{wordIntervalActive}</div>
+        <button className="btn-russia"></button>
+        <button className="btn-english"></button>
+      </div>
+
+
       <NavWords/>
       {/*<S.StyleCom src={"https://docs.google.com/spreadsheets/d/1o1wdZkwCA9Q8uXo_dTRG32qlcJ2F6G1X6hLkkAPGDUo/edit?usp=sharing"}>Link</S.StyleCom>*/}
       <a
@@ -896,7 +921,6 @@ const Main = (props) => {
         <img src={'https://studyingenglish.ru/wp-content/uploads/2020/08/modalnye-glagoly-tablica.jpg'}></img>
       </S.Container>
       <a href={'https://poliglot16.ru/en/urok9/'}>ВОЗВРАТНЫЕ МЕСТОИМЕНИЯ </a>
-
 
 
       <div className="block-answer">
